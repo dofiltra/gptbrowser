@@ -680,6 +680,5 @@ export async function scrollToBottom(page: Page) {
 //   return res.send(bufferPng)
 // }
 
-
 export * from './managers/cleaning'
 export * from './managers/extractors'
