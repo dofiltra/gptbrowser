@@ -1,0 +1,57 @@
+{
+  "name": "package_name",
+  "version": "1.0.1",
+  "description": "",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"jest --config jestconfig.json\"",
+    "build": "tsc",
+    "format": "prettier --write \"src/**/*.ts\"",
+    "lint": "tslint -p tsconfig.json",
+    "prepublishOnly": "yarn test && yarn run lint",
+    "prepare": "yarn run build",
+    "preversion": "yarn run lint",
+    "version": "yarn run format && git add -A src",
+    "postversion": "git push && git push --tags",
+    "dev": "yarn run build && node --trace-warnings --experimental-modules --es-module-specifier-resolution=node ./lib/debug.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ty4ka/package_name.git"
+  },
+  "keywords": [],
+  "author": "Dmitrii Osipovich",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ty4ka/package_name/issues"
+  },
+  "homepage": "https://github.com/Ty4ka/package_name#readme",
+  "devDependencies": {
+    "@types/jsdom": "^16.2.13",
+    "@types/lodash": "^4.14.176",
+    "@types/node": "^16.9.2",
+    "prettier": "^2.4.1",
+    "tslint": "^6.1.3",
+    "tslint-config-prettier": "^1.18.0",
+    "typescript": "^4.4.3"
+  },
+  "files": [
+    "lib/**/*"
+  ],
+  "dependencies": {
+    "@mozilla/readability": "^0.4.1",
+    "browser-manager": "^1.0.13",
+    "cheerio": "^1.0.0-rc.10",
+    "dotenv": "^10.0.0",
+    "dprx-types": "^1.0.11",
+    "esm-requirer": "^1.0.3",
+    "jsdom": "^18.0.1",
+    "lodash": "^4.17.21",
+    "page-templator": "^1.0.3",
+    "rwrsvc": "^1.0.2",
+    "split-helper": "^1.0.1",
+    "time-helpers": "^1.0.0"
+  }
+}
