@@ -1,3 +1,17 @@
+/* tslint:disable:prefer-const */
+/* tslint:disable:no-empty */
+/* tslint:disable:no-shadowed-variable */
+/* tslint:disable:only-arrow-functions */
+/* tslint:disable:forin */
+/* tslint:disable:no-unused-expression */
+/* tslint:disable:prefer-for-of */
+/* tslint:disable:comment-format */
+/* tslint:disable:no-unused-expression */
+
+import { CheerManager } from 'cheer-manager'
+import { TCustoms, TCleanOpts, TReplacers, TRemovers, TRemoverEl, TDomainData, TAds } from 'dprx-types'
+import _ from 'lodash'
+
 export async function replaceCustoms(content?: string, customs?: TCustoms) {
   if (!content?.length || !customs) {
     return content || ''
@@ -53,7 +67,7 @@ export async function replaceHtml(html?: string, cleanOpts?: TCleanOpts, replace
       html = html.replaceAll(new RegExp(re.regex!, re.flags), re.newValue)
     }
   } catch (e: any) {
-    logTg(`replaceHtml: ${e}`)
+    // logTg(`replaceHtml: ${e}`)
   }
 
   return html
@@ -69,11 +83,11 @@ export async function removeTags(htmlText: string, cleanOpts?: TCleanOpts, remov
 
   function rmElem(rmEl: TRemoverEl) {
     try {
-      let { count: innerCount = Number.MAX_SAFE_INTEGER, text: innerText } = {
+      const { count: innerCount = Number.MAX_SAFE_INTEGER, text: innerText } = {
         ...rmEl.inner
       }
 
-      let { count: selectorCount = Number.MAX_SAFE_INTEGER, selector } = {
+      const { count: selectorCount = Number.MAX_SAFE_INTEGER, selector } = {
         ...rmEl.selectorItem
       }
 
@@ -168,7 +182,7 @@ export const replacerVirtualPath = (text: string, virtualPath: string, attrs: st
       text = text.replaceAll(`${attr}/`, `${attr}${virtualPath}/`)
       text = text.replaceAll(`${attr}__temp_double_slash__`, `${attr}//`)
     } catch (e: any) {
-      logTg(`replacerVirtualPath: '${attr}': ${e}`)
+      // logTg(`replacerVirtualPath: '${attr}': ${e}`)
     }
   }
 

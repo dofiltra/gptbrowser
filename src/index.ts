@@ -1,3 +1,13 @@
+/* tslint:disable:prefer-const */
+/* tslint:disable:no-empty */
+/* tslint:disable:no-shadowed-variable */
+/* tslint:disable:only-arrow-functions */
+/* tslint:disable:forin */
+/* tslint:disable:no-unused-expression */
+/* tslint:disable:prefer-for-of */
+/* tslint:disable:comment-format */
+/* tslint:disable:no-unused-expression */
+
 import _ from 'lodash'
 import jsdom from 'jsdom'
 // import cheerio from 'cheerio'
@@ -26,7 +36,7 @@ import { extractSelectorValue } from './managers/extractors'
 
 const { JSDOM } = jsdom
 
-const logTg = (...args: any[]) => console.log(args)
+const logTg = (...args: any[]) => {}
 
 export type TContentSettings = {
   url: string
@@ -128,7 +138,7 @@ export class GptBrowser extends BrowserManager {
 
               const rewritedResult = await this.getRewritedResult(innerText, coefWtn)
 
-              if (rewritedResult.err || !rewritedResult.text?.length || innerText == rewritedResult.text) {
+              if (rewritedResult.err || !rewritedResult.text?.length || innerText === rewritedResult.text) {
                 continue
               }
 
@@ -267,9 +277,9 @@ export class GptBrowser extends BrowserManager {
     this.lockClose(10)
     try {
       await page.evaluate(() => {
-        var findComments = function (el: ChildNode | Document) {
-          var arr = []
-          for (var i = 0; i < el.childNodes.length; i++) {
+        const findComments = function (el: ChildNode | Document) {
+          const arr = []
+          for (let i = 0; i < el.childNodes.length; i++) {
             const node = el.childNodes[i]
             if (node.nodeType === 8) {
               arr.push(node)
@@ -280,7 +290,7 @@ export class GptBrowser extends BrowserManager {
           return arr
         }
 
-        var commentNodes = findComments(document)
+        const commentNodes = findComments(document)
         commentNodes.forEach((c: ChildNode) => c.remove())
       })
     } catch (e: any) {
@@ -573,7 +583,7 @@ export class GptBrowser extends BrowserManager {
         } catch {}
       }
     } catch (e) {
-      console.log(e)
+      // console.log(e)
     }
 
     this.lockClose()

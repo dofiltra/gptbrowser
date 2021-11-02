@@ -1,5 +1,5 @@
 {
-  "name": "package_name",
+  "name": "gptbrowser",
   "version": "1.0.1",
   "description": "",
   "main": "lib/index.js",
@@ -19,15 +19,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Ty4ka/package_name.git"
+    "url": "git+https://github.com/Ty4ka/gptbrowser.git"
   },
   "keywords": [],
   "author": "Dmitrii Osipovich",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Ty4ka/package_name/issues"
+    "url": "https://github.com/Ty4ka/gptbrowser/issues"
   },
-  "homepage": "https://github.com/Ty4ka/package_name#readme",
+  "homepage": "https://github.com/Ty4ka/gptbrowser#readme",
   "devDependencies": {
     "@types/jsdom": "^16.2.13",
     "@types/lodash": "^4.14.176",
@@ -43,6 +43,7 @@
   "dependencies": {
     "@mozilla/readability": "^0.4.1",
     "browser-manager": "^1.0.13",
+    "cheer-manager": "^1.0.1",
     "cheerio": "^1.0.0-rc.10",
     "dotenv": "^10.0.0",
     "dprx-types": "^1.0.11",
