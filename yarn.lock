@@ -1078,10 +1078,10 @@ rimraf@^3.0.2:
   dependencies:
     glob "^7.1.3"
 
-rwrsvc@^1.0.2:
-  version "1.0.2"
-  resolved "https://registry.npmjs.org/rwrsvc/-/rwrsvc-1.0.2.tgz"
-  integrity sha512-3Y8mqtpmYw2wVkS1rYxsLFlmB2Oqw6c2fjwxJnkfc3yMNBtNBzjGJQEp0muP41pyRKFw06y6IuYOA+p1maiIXQ==
+rwrsvc@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/rwrsvc/-/rwrsvc-1.0.3.tgz#3b9b64605010662cc3a7d4b72d4c376c1a65d200"
+  integrity sha512-WDm/IVeWXLGYMQ/V21+cGXI9JOLsCjVNW0R6taxsSEaqi3GsLgHWKNamVAzRU7i35rwnKysQMoAyTnwz10EMqg==
   dependencies:
     deepler "^1.0.3"
     diff-match-patch "^1.0.5"
@@ -1090,7 +1090,7 @@ rwrsvc@^1.0.2:
     lodash "^4.17.21"
     split-helper "^1.0.1"
     time-helpers "^1.0.0"
-    wtn-svc "^1.0.2"
+    wtn-svc "^1.0.3"
 
 safe-buffer@~5.2.0:
   version "5.2.1"
@@ -1399,10 +1399,10 @@ ws@^8.2.3:
   resolved "https://registry.npmjs.org/ws/-/ws-8.2.3.tgz"
   integrity sha512-wBuoj1BDpC6ZQ1B7DWQBYVLphPWkm8i9Y0/3YdHjHKHiohOJ1ws+3OccDWtH+PoC9DZD5WOTrJvNbWvjS6JWaA==
 
-wtn-svc@^1.0.2:
-  version "1.0.2"
-  resolved "https://registry.npmjs.org/wtn-svc/-/wtn-svc-1.0.2.tgz"
-  integrity sha512-mUOKPAQIg5o/+nidP+51UHKHVhcLLvYhcqOAg0C6KSGoyy9a/yUs0yIYt186+PrtGYCvoWioPfqy8+zZeiL2YQ==
+wtn-svc@^1.0.3:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/wtn-svc/-/wtn-svc-1.0.4.tgz#6f2139b9d3a70c57620b83565778e78bfb6960f3"
+  integrity sha512-LmQWr91h+dj61hBxB+LlxEDW3/xwLGx+nQ1o7GqI7ezqAOwdKerDUa6OqcYEKnTcdDMwNyOIDL6mSrUx8dHqMg==
   dependencies:
     browser-manager "^1.0.6"
     dbtempo "^1.0.2"
