@@ -148,7 +148,18 @@ brace-expansion@^1.1.7:
     balanced-match "^1.0.0"
     concat-map "0.0.1"
 
-browser-manager@^1.0.13, browser-manager@^1.0.6, browser-manager@^1.0.8:
+browser-manager@^1.0.14:
+  version "1.0.14"
+  resolved "https://registry.yarnpkg.com/browser-manager/-/browser-manager-1.0.14.tgz#1f5db8680c2fed7ac27598989e8980e7b3b0692b"
+  integrity sha512-2qO7wpSbwjzo2N+tbQ4hARcLaPs/D+dGoaE4Cl6Vw2vjof1beGCcg+EpK5nZCBLoG8Gp9F4k/7YMC5AdInzLQA==
+  dependencies:
+    is-running-process "^1.0.0"
+    lodash "^4.17.21"
+    playwright "^1.15.2"
+    time-helpers "^1.0.0"
+    tor-mgr "^1.0.0"
+
+browser-manager@^1.0.6, browser-manager@^1.0.8:
   version "1.0.13"
   resolved "https://registry.npmjs.org/browser-manager/-/browser-manager-1.0.13.tgz"
   integrity sha512-4OYeK1D9R20Jj3x2bKtdtm42+c0Up6xZT3ZvWheyAepOXushaeGOy7IVfAg1owhs/ohMI0xzpaXEScZTSOnMlQ==

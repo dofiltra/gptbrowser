@@ -129,7 +129,7 @@ export class GptBrowser extends BrowserManager {
           const els = await page.$$(sel)
           for (const el of els) {
             try {
-              this.lockClose(60)
+              this.lockClose(600)
               const innerText = await el.innerText()
 
               if (!(await this.canBeRewrite(el, innerText))) {
