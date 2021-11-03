@@ -360,7 +360,7 @@ export class GptBrowser extends BrowserManager {
           if (attrValue.startsWith(donorUrl.host)) {
             await el.evaluate((elem, { attr, attrValue }) => elem.setAttribute(attr, attrValue), {
               attr,
-              attrValue: attrValue.replace(donorUrl.host, `{ACCEPTOR_HOST}${virtualPath}`)
+              attrValue: attrValue.replace(donorUrl.host, `{ACCEPTOR_HOST}/${virtualPath}`)
             })
             continue
           }
@@ -516,9 +516,7 @@ export class GptBrowser extends BrowserManager {
     let content = (await page.content()) || ''
     let title = (await page.title()) || ''
     let h1 = (await (await page.$('h1'))?.innerText()) || title
-
     let descr = (await (await page.$("meta[name='description']"))?.getAttribute('content')) || ''
-
     let pageImg = (await (await page.$("meta[property='og:image']"))?.getAttribute('content')) || ''
 
     try {
