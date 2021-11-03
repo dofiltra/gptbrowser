@@ -159,7 +159,7 @@ browser-manager@^1.0.14:
     time-helpers "^1.0.0"
     tor-mgr "^1.0.0"
 
-browser-manager@^1.0.6, browser-manager@^1.0.8:
+browser-manager@^1.0.8:
   version "1.0.13"
   resolved "https://registry.npmjs.org/browser-manager/-/browser-manager-1.0.13.tgz"
   integrity sha512-4OYeK1D9R20Jj3x2bKtdtm42+c0Up6xZT3ZvWheyAepOXushaeGOy7IVfAg1owhs/ohMI0xzpaXEScZTSOnMlQ==
@@ -1078,19 +1078,35 @@ rimraf@^3.0.2:
   dependencies:
     glob "^7.1.3"
 
-rwrsvc@^1.0.3:
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/rwrsvc/-/rwrsvc-1.0.3.tgz#3b9b64605010662cc3a7d4b72d4c376c1a65d200"
-  integrity sha512-WDm/IVeWXLGYMQ/V21+cGXI9JOLsCjVNW0R6taxsSEaqi3GsLgHWKNamVAzRU7i35rwnKysQMoAyTnwz10EMqg==
+rwrsvc@^1.1.1:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/rwrsvc/-/rwrsvc-1.1.2.tgz#19a00f172082a25d4bc1195473cb3821d65194f5"
+  integrity sha512-VGwk3qR+c/dLtPAwo7mkoNoZwlmqn2DBFZD4B+LlfAzmyWV53f9wnl5F9WGnRBHDNGwk57i6km3i0b8zYBd0SQ==
   dependencies:
     deepler "^1.0.3"
     diff-match-patch "^1.0.5"
     dotenv "^10.0.0"
     esm-requirer "^1.0.3"
     lodash "^4.17.21"
+    rwrsvc "^1.1.1"
     split-helper "^1.0.1"
     time-helpers "^1.0.0"
-    wtn-svc "^1.0.3"
+    wtn-svc "^1.1.2"
+
+rwrsvc@^1.1.4:
+  version "1.1.4"
+  resolved "https://registry.yarnpkg.com/rwrsvc/-/rwrsvc-1.1.4.tgz#2466cd207f60ce55108eea02cfd0109fca02f2d9"
+  integrity sha512-0YUmBZS0NRcHS4bGebcLIZ/H7mpnw97Wc2s/rwzguDZwRV2o+/gCA5T/qE4W8GEgf39Dx/miCYtAVjVrhNbqRA==
+  dependencies:
+    deepler "^1.0.3"
+    diff-match-patch "^1.0.5"
+    dotenv "^10.0.0"
+    esm-requirer "^1.0.3"
+    lodash "^4.17.21"
+    rwrsvc "^1.1.1"
+    split-helper "^1.0.1"
+    time-helpers "^1.0.0"
+    wtn-svc "^1.1.2"
 
 safe-buffer@~5.2.0:
   version "5.2.1"
@@ -1399,12 +1415,12 @@ ws@^8.2.3:
   resolved "https://registry.npmjs.org/ws/-/ws-8.2.3.tgz"
   integrity sha512-wBuoj1BDpC6ZQ1B7DWQBYVLphPWkm8i9Y0/3YdHjHKHiohOJ1ws+3OccDWtH+PoC9DZD5WOTrJvNbWvjS6JWaA==
 
-wtn-svc@^1.0.3:
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/wtn-svc/-/wtn-svc-1.0.4.tgz#6f2139b9d3a70c57620b83565778e78bfb6960f3"
-  integrity sha512-LmQWr91h+dj61hBxB+LlxEDW3/xwLGx+nQ1o7GqI7ezqAOwdKerDUa6OqcYEKnTcdDMwNyOIDL6mSrUx8dHqMg==
+wtn-svc@^1.1.2:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/wtn-svc/-/wtn-svc-1.1.2.tgz#689ae6fe7ba7852d161e84d35b046ed3bfbadf38"
+  integrity sha512-r1yV6X9yiu3pW382aUDsSB6aj7vH6jiAEZxmeXGuvPsV99s/qaDCvQIRQKLw0co74vQEXVDSTr8CF6mkrhQ5fA==
   dependencies:
-    browser-manager "^1.0.6"
+    browser-manager "^1.0.14"
     dbtempo "^1.0.2"
     is-running-process "^1.0.0"
     lodash "^4.17.21"
