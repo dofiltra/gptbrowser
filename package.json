@@ -1,6 +1,6 @@
 {
   "name": "gptbrowser",
-  "version": "1.1.2",
+  "version": "1.1.4",
   "description": "",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -41,7 +41,6 @@
     "lib/**/*"
   ],
   "dependencies": {
-    "rwrsvc": "^1.1.4",
     "@mozilla/readability": "^0.4.1",
     "browser-manager": "^1.0.14",
     "cheer-manager": "^1.0.1",
@@ -52,6 +51,7 @@
     "jsdom": "^18.0.1",
     "lodash": "^4.17.21",
     "page-templator": "^1.0.3",
+    "rwrsvc": "^1.1.4",
     "split-helper": "^1.0.1",
     "time-helpers": "^1.0.0"
   }
