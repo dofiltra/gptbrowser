@@ -51,7 +51,7 @@
     "jsdom": "^18.0.1",
     "lodash": "^4.17.21",
     "page-templator": "^1.0.3",
-    "rwrsvc": "^1.1.4",
+    "rwrsvc": "^1.1.5",
     "split-helper": "^1.0.1",
     "time-helpers": "^1.0.0"
   }
