@@ -27,12 +27,13 @@ import {
 } from 'dprx-types'
 
 import { removeTags, replaceCustoms, replaceHtml } from './managers/cleaning'
-import { RewriteSvc } from 'rwrsvc'
+import { RewriteSvc, TDeeplSettings, TWtnSettings } from 'rwrsvc'
 import { reTryCatch } from 'esm-requirer'
 import { getMicroSplits } from 'split-helper'
 import { TemplateDarkBootstrap } from 'page-templator'
 import { BrowserManager } from 'browser-manager'
 import { extractSelectorValue } from './managers/extractors'
+import { TBrowserOpts } from 'browser-manager/lib/types'
 
 const { JSDOM } = jsdom
 
@@ -52,7 +53,22 @@ export type TContentSettings = {
   rewriteOpts?: TRewriteOpts
 }
 
+export type TDependSettings = {
+  deeplSettings?: TDeeplSettings
+  wtnSettings?: TWtnSettings
+}
+
 export class GptBrowser extends BrowserManager {
+  private static wtnSettings?: TWtnSettings
+  private static deeplSettings?: TDeeplSettings
+
+  static async build<T>(browserOpts: TBrowserOpts, dependOpts?: TDependSettings): Promise<T | null> {
+    GptBrowser.wtnSettings = dependOpts?.wtnSettings
+    GptBrowser.deeplSettings = dependOpts?.deeplSettings
+
+    return super.build(browserOpts)
+  }
+
   async getContent({
     donor,
     acceptor,
@@ -163,7 +179,8 @@ export class GptBrowser extends BrowserManager {
     this.lockClose(60)
 
     const rewritedResult = await new RewriteSvc({
-      //   proxy: ProxyObservator.getRandom(),
+      deeplSettings: GptBrowser.deeplSettings,
+      wtnSettings: GptBrowser.wtnSettings
     }).rewrite({
       text,
       coefWtn
