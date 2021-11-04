@@ -204,7 +204,7 @@ export class GptBrowser extends BrowserManager {
       return false
     }
 
-    const microSplits = getMicroSplits(innerText, 0, '.').filter((x) => x && x.trim())
+    const microSplits = getMicroSplits(innerText, 0, '. ').filter((x) => x && x.trim())
     if (microSplits.length <= 1) {
       return false
     }
