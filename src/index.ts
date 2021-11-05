@@ -47,7 +47,6 @@ export type TContentSettings = {
   removers?: TRemovers
   replacers?: TReplacers
   customs?: TCustoms
-  virtualPath?: string
   nReadOpts?: TNreadOpts
   isFlasher?: boolean
   rewriteOpts?: TRewriteOpts
@@ -78,7 +77,7 @@ export class GptBrowser extends BrowserManager {
     replacers,
     customs,
     isFlasher,
-    rewriteOpts
+    rewriteOpts,
   }: TContentSettings) {
     this.lockClose(60)
 

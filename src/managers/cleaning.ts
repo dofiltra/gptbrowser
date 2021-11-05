@@ -105,7 +105,6 @@ export class CleaningSvc {
                     customs,
                     isFlasher,
                     rewriteOpts,
-                    virtualPath,
                     nReadOpts: donor?.nReadOpts
                   })
                   await pwrt!.close()
