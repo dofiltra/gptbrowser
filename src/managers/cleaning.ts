@@ -9,8 +9,138 @@
 /* tslint:disable:no-unused-expression */
 
 import { CheerManager } from 'cheer-manager'
-import { TCustoms, TCleanOpts, TReplacers, TRemovers, TRemoverEl, TDomainData, TAds } from 'dprx-types'
+import {
+  TCustoms,
+  TCleanOpts,
+  TReplacers,
+  TRemovers,
+  TRemoverEl,
+  TDomainData,
+  TAds,
+  TAcceptorInfo,
+  TRewriteOpts
+} from 'dprx-types'
+import { reTryCatch } from 'esm-requirer'
 import _ from 'lodash'
+import { mimeTypes } from 'mime-helper'
+import { GptBrowser } from '..'
+
+export type TCleanSettings = {
+  text: string
+  url: string
+  contentType: string
+  domainData: TDomainData
+  acceptor: TAcceptorInfo
+  isFlasher?: boolean
+  noBrowser?: boolean
+  maxOpenedBrowsers?: number
+  appPath?: string
+  rewriteOpts?: TRewriteOpts
+}
+
+// export type TCleanSettings
+
+export class CleaningSvc {
+  async getClean({
+    text,
+    url,
+    contentType,
+    acceptor,
+    domainData,
+    appPath,
+    isFlasher,
+    noBrowser,
+    rewriteOpts,
+    maxOpenedBrowsers
+  }: TCleanSettings): Promise<string> {
+    return (
+      await reTryCatch({
+        title: 'getClean',
+        fn: async () => {
+          const isHtml = contentType === mimeTypes.html
+          const { removers, replacers, customs } = domainData
+          const donor =
+            domainData.donors?.find((x) => x.virtualPath && url.includes(x.virtualPath)) ||
+            domainData.donors?.find((x) => url.includes(x.domain))
+
+          const virtualPath = donor?.virtualPath || ''
+
+          text = replacerVirtualPath(text, virtualPath, [
+            'url(',
+            'url("',
+
+            'action="',
+            "action='",
+
+            'href="',
+            "href='",
+
+            'src="',
+            "src='"
+          ])
+
+          if (isHtml) {
+            if (noBrowser) {
+              text = (!url.includes('?amp') && (await replaceHtml(text, donor?.cleanOpts, replacers))) || text
+              text = await removeTags(text, donor?.cleanOpts, removers)
+              text = await replaceCustoms(text, customs)
+            } else {
+              const cleanPwrt = await reTryCatch({
+                title: 'clean html',
+                fn: async () => {
+                  const pwrt = await GptBrowser.build<GptBrowser>({
+                    launchOpts: {
+                      headless: true
+                    },
+                    maxOpenedBrowsers,
+                    appPath
+                  })
+                  const { content } = await pwrt!.getContent({
+                    donor,
+                    acceptor,
+                    url,
+                    html: text,
+                    replacers,
+                    removers,
+                    customs,
+                    isFlasher,
+                    rewriteOpts,
+                    virtualPath,
+                    nReadOpts: donor?.nReadOpts
+                  })
+                  await pwrt!.close()
+                  return content
+                }
+              })
+
+              if (cleanPwrt?.result?.length > 0) {
+                text = cleanPwrt.result
+              }
+            }
+          }
+
+          if (!isHtml || noBrowser) {
+            ;(domainData.donors?.map((d) => new URL(d.domain)) || []).forEach((donorInfo: URL) => {
+              text = text
+                .replace(new RegExp(donorInfo.host.toLowerCase(), 'gi'), acceptor.host + virtualPath)
+                .replace(new RegExp(donorInfo.protocol, 'gi'), acceptor.protocol)
+            })
+          }
+
+          text = text?.replaceAll('{ACCEPTOR_HOST}', `${acceptor.host}`)
+          text = text?.replaceAll('{ACCEPTOR_DOMAIN}', `${acceptor.domain}`)
+
+          if (isHtml) {
+            text = await advertise(text, domainData)
+          }
+
+          return text
+        },
+        defaultValue: text
+      })
+    ).result
+  }
+}
 
 export async function replaceCustoms(content?: string, customs?: TCustoms) {
   if (!content?.length || !customs) {

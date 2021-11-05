@@ -810,6 +810,14 @@ mime-db@1.50.0:
   resolved "https://registry.npmjs.org/mime-db/-/mime-db-1.50.0.tgz"
   integrity sha512-9tMZCDlYHqeERXEHO9f/hKfNXhre5dK2eE/krIvUjZbS2KPcqGDfNShIWS1uW9XOTKQKqK6qbeOci18rbfW77A==
 
+mime-helper@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/mime-helper/-/mime-helper-1.0.1.tgz#948c3f7a6aa4759a10a9b0cec25b4ad626902394"
+  integrity sha512-GXxrBAopn2YmxuTaq8l4K9aE5Jw5bEjDtYc4rA4w4EV7us+OpJVi/DxUjzXdy/7it55e8D1UJXLF8EqSEal7Fg==
+  dependencies:
+    is-running-process "^1.0.0"
+    time-helpers "^1.0.0"
+
 mime-types@^2.1.12:
   version "2.1.33"
   resolved "https://registry.npmjs.org/mime-types/-/mime-types-2.1.33.tgz"
