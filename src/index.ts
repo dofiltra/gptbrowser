@@ -77,7 +77,7 @@ export class GptBrowser extends BrowserManager {
     replacers,
     customs,
     isFlasher,
-    rewriteOpts,
+    rewriteOpts
   }: TContentSettings) {
     this.lockClose(60)
 
