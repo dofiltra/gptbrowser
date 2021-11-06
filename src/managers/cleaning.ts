@@ -9,6 +9,7 @@
 /* tslint:disable:no-unused-expression */
 
 import { CheerManager } from 'cheer-manager'
+import { TDeeplSettings } from 'deepler'
 import {
   TCustoms,
   TCleanOpts,
@@ -23,6 +24,7 @@ import {
 import { reTryCatch } from 'esm-requirer'
 import _ from 'lodash'
 import { mimeTypes } from 'mime-helper'
+import { TWtnSettings } from 'wtn-svc'
 import { GptBrowser, TBrowserOpts } from '..'
 
 export type TCleanSettings = {
@@ -31,9 +33,11 @@ export type TCleanSettings = {
   contentType: string
   domainData: TDomainData
   acceptor: TAcceptorInfo
+  browserOpts: TBrowserOpts
+  wtnSettings?: TWtnSettings
+  deeplSettings?: TDeeplSettings
   isFlasher?: boolean
   noBrowser?: boolean
-  browserOpts?: TBrowserOpts
   rewriteOpts?: TRewriteOpts
 }
 
@@ -47,7 +51,9 @@ export class CleaningSvc {
     isFlasher,
     noBrowser,
     rewriteOpts,
-    browserOpts
+    browserOpts,
+    deeplSettings,
+    wtnSettings
   }: TCleanSettings): Promise<string> {
     return (
       await reTryCatch({
@@ -84,12 +90,9 @@ export class CleaningSvc {
               const cleanPwrt = await reTryCatch({
                 title: 'clean html',
                 fn: async () => {
-                  const pwrt = await GptBrowser.build<GptBrowser>({
-                    launchOpts: {
-                      headless: !!browserOpts?.launchOpts?.headless
-                    },
-                    maxOpenedBrowsers: 1,
-                    ...browserOpts
+                  const pwrt = await GptBrowser.build<GptBrowser>(browserOpts, {
+                    deeplSettings,
+                    wtnSettings
                   })
                   const { content } = await pwrt!.getContent({
                     donor,
