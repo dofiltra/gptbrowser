@@ -13,7 +13,7 @@ import jsdom from 'jsdom'
 // import cheerio from 'cheerio'
 
 import { Readability } from '@mozilla/readability'
-import { Page, ElementHandle,BrowserManager } from 'browser-manager'
+import { Page, ElementHandle, BrowserManager } from 'browser-manager'
 import {
   TAcceptorInfo,
   TCleanOpts,
