@@ -706,3 +706,4 @@ export async function scrollToBottom(page: Page) {
 
 export * from './managers/cleaning'
 export * from './managers/extractors'
+export * from 'browser-manager'
