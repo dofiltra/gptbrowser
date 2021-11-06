@@ -13,7 +13,7 @@ import jsdom from 'jsdom'
 // import cheerio from 'cheerio'
 
 import { Readability } from '@mozilla/readability'
-import { Page, ElementHandle } from 'browser-manager'
+import { Page, ElementHandle,BrowserManager } from 'browser-manager'
 import {
   TAcceptorInfo,
   TCleanOpts,
@@ -31,7 +31,6 @@ import { RewriteSvc, TDeeplSettings, TWtnSettings } from 'rwrsvc'
 import { reTryCatch } from 'esm-requirer'
 import { getMicroSplits } from 'split-helper'
 import { TemplateDarkBootstrap } from 'page-templator'
-import { BrowserManager } from 'browser-manager'
 import { extractSelectorValue } from './managers/extractors'
 import { TBrowserOpts } from 'browser-manager/lib/types'
 
@@ -707,3 +706,4 @@ export async function scrollToBottom(page: Page) {
 export * from './managers/cleaning'
 export * from './managers/extractors'
 export * from 'browser-manager'
+export * from 'browser-manager/lib/types'
