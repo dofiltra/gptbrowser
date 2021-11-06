@@ -37,8 +37,6 @@ export type TCleanSettings = {
   rewriteOpts?: TRewriteOpts
 }
 
-// export type TCleanSettings
-
 export class CleaningSvc {
   async getClean({
     text,
