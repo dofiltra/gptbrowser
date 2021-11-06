@@ -146,7 +146,7 @@ export class GptBrowser extends BrowserManager {
           let i = 0
 
           while (i < els.length) {
-            this.lockClose(90 * threadsCount)
+            this.lockClose(300 * threadsCount)
             await Promise.all(els.splice(i, i + threadsCount).map(async (el) => await this.rewriteElement(el, coefWtn)))
             i += threadsCount
           }
@@ -158,18 +158,21 @@ export class GptBrowser extends BrowserManager {
   }
 
   async getRewritedResult(text: string, coefWtn: number) {
-    this.lockClose(60)
+    this.lockClose(600)
 
-    const rewritedResult = await new RewriteSvc({
-      deeplSettings: GptBrowser.deeplSettings,
-      wtnSettings: GptBrowser.wtnSettings
-    }).rewrite({
-      text,
-      coefWtn
-    })
-
-    this.lockClose()
-    return rewritedResult
+    try {
+      const rewritedResult = await new RewriteSvc({
+        deeplSettings: GptBrowser.deeplSettings,
+        wtnSettings: GptBrowser.wtnSettings
+      }).rewrite({
+        text,
+        coefWtn
+      })
+      return rewritedResult
+    } catch (err: any) {
+      this.lockClose()
+      return { text: '', err }
+    }
   }
 
   async canBeRewrite(el: ElementHandle<SVGElement | HTMLElement>, innerText: string) {
