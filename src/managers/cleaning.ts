@@ -33,7 +33,6 @@ export type TCleanSettings = {
   acceptor: TAcceptorInfo
   isFlasher?: boolean
   noBrowser?: boolean
-  appPath?: string
   browserOpts?: TBrowserOpts
   rewriteOpts?: TRewriteOpts
 }
@@ -47,7 +46,6 @@ export class CleaningSvc {
     contentType,
     acceptor,
     domainData,
-    appPath,
     isFlasher,
     noBrowser,
     rewriteOpts,
@@ -93,7 +91,6 @@ export class CleaningSvc {
                       headless: !!browserOpts?.launchOpts?.headless
                     },
                     maxOpenedBrowsers: 1,
-                    appPath,
                     ...browserOpts
                   })
                   const { content } = await pwrt!.getContent({
