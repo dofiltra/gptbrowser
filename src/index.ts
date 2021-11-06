@@ -131,7 +131,7 @@ export class GptBrowser extends BrowserManager {
   }
 
   async rewrite(page: Page, rewriteOpts?: TRewriteOpts) {
-    if (!rewriteOpts) {
+    if (!rewriteOpts?.coefWtn) {
       return
     }
 
@@ -139,10 +139,10 @@ export class GptBrowser extends BrowserManager {
     try {
       const { coefWtn = _.random(true), selectors = ['p'] } = rewriteOpts
 
-      for (const sel of selectors) {
+      for await (const sel of selectors) {
         try {
           const els = await page.$$(sel)
-          for (const el of els) {
+          for await (const el of els) {
             try {
               this.lockClose(600)
               const innerText = await el.innerText()
