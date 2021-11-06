@@ -46,7 +46,6 @@ export type TContentSettings = {
   removers?: TRemovers
   replacers?: TReplacers
   customs?: TCustoms
-  nReadOpts?: TNreadOpts
   isFlasher?: boolean
   rewriteOpts?: TRewriteOpts
 }

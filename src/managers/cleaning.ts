@@ -23,7 +23,7 @@ import {
 import { reTryCatch } from 'esm-requirer'
 import _ from 'lodash'
 import { mimeTypes } from 'mime-helper'
-import { GptBrowser } from '..'
+import { GptBrowser, TBrowserOpts } from '..'
 
 export type TCleanSettings = {
   text: string
@@ -33,8 +33,8 @@ export type TCleanSettings = {
   acceptor: TAcceptorInfo
   isFlasher?: boolean
   noBrowser?: boolean
-  maxOpenedBrowsers?: number
   appPath?: string
+  browserOpts?: TBrowserOpts
   rewriteOpts?: TRewriteOpts
 }
 
@@ -51,7 +51,7 @@ export class CleaningSvc {
     isFlasher,
     noBrowser,
     rewriteOpts,
-    maxOpenedBrowsers
+    browserOpts
   }: TCleanSettings): Promise<string> {
     return (
       await reTryCatch({
@@ -90,10 +90,11 @@ export class CleaningSvc {
                 fn: async () => {
                   const pwrt = await GptBrowser.build<GptBrowser>({
                     launchOpts: {
-                      headless: true
+                      headless: !!browserOpts?.launchOpts?.headless
                     },
-                    maxOpenedBrowsers,
-                    appPath
+                    maxOpenedBrowsers: 1,
+                    appPath,
+                    ...browserOpts
                   })
                   const { content } = await pwrt!.getContent({
                     donor,
@@ -104,8 +105,7 @@ export class CleaningSvc {
                     removers,
                     customs,
                     isFlasher,
-                    rewriteOpts,
-                    nReadOpts: donor?.nReadOpts
+                    rewriteOpts
                   })
                   await pwrt!.close()
                   return content
