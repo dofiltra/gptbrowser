@@ -158,7 +158,7 @@ export class GptBrowser extends BrowserManager {
   }
 
   async getRewritedResult(text: string, coefWtn: number) {
-    this.lockClose(600)
+    this.lockClose(6e5)
 
     try {
       const rewritedResult = await new RewriteSvc({
@@ -410,13 +410,13 @@ export class GptBrowser extends BrowserManager {
 
   private async rewriteElement(el: ElementHandle<SVGElement | HTMLElement>, coefWtn: number) {
     try {
-      this.lockClose(600)
       const innerText = await el.innerText()
 
       if (!(await this.canBeRewrite(el, innerText))) {
         return
       }
 
+      this.lockClose(6e5)
       const rewritedResult = await this.getRewritedResult(innerText, coefWtn)
 
       if (rewritedResult.err || !rewritedResult.text?.length || innerText === rewritedResult.text) {
