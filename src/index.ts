@@ -135,37 +135,20 @@ export class GptBrowser extends BrowserManager {
       return
     }
 
-    this.lockClose(30)
+    const threadsCount = GptBrowser.wtnSettings?.browserOpts?.maxOpenedBrowsers || 1
+
     try {
       const { coefWtn = _.random(true), selectors = ['p'] } = rewriteOpts
 
       for await (const sel of selectors) {
         try {
           const els = await page.$$(sel)
-          for await (const el of els) {
-            try {
-              this.lockClose(600)
-              const innerText = await el.innerText()
+          let i = 0
 
-              if (!(await this.canBeRewrite(el, innerText))) {
-                continue
-              }
-
-              const rewritedResult = await this.getRewritedResult(innerText, coefWtn)
-
-              if (rewritedResult.err || !rewritedResult.text?.length || innerText === rewritedResult.text) {
-                continue
-              }
-
-              await el.evaluate(
-                (e, { rewriteVal }) => {
-                  e.innerHTML = rewriteVal
-                },
-                {
-                  rewriteVal: rewritedResult.text
-                }
-              )
-            } catch {}
+          while (i < els.length) {
+            this.lockClose(90 * threadsCount)
+            await Promise.all(els.splice(i, i + threadsCount).map(async (el) => await this.rewriteElement(el, coefWtn)))
+            i += threadsCount
           }
         } catch {}
       }
@@ -420,6 +403,30 @@ export class GptBrowser extends BrowserManager {
     } catch {}
 
     this.lockClose()
+  }
+
+  private async rewriteElement(el: ElementHandle<SVGElement | HTMLElement>, coefWtn: number) {
+    try {
+      this.lockClose(600)
+      const innerText = await el.innerText()
+
+      if (!(await this.canBeRewrite(el, innerText))) {
+        return
+      }
+
+      const rewritedResult = await this.getRewritedResult(innerText, coefWtn)
+
+      if (rewritedResult.err || !rewritedResult.text?.length || innerText === rewritedResult.text) {
+        return
+      }
+
+      await el.evaluate(
+        (e, { rewriteVal }) => {
+          e.innerHTML = rewriteVal
+        },
+        { rewriteVal: rewritedResult.text }
+      )
+    } catch {}
   }
 
   // async removeHtml(page: Page, cleanOpts?: TCleanOpts, removers?: TRemovers) {
