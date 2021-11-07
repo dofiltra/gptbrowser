@@ -60,82 +60,110 @@ export class CleaningSvc {
         title: 'getClean',
         fn: async () => {
           const isHtml = contentType === mimeTypes.html
-          const { removers, replacers, customs } = domainData
+
           const donor =
             domainData.donors?.find((x) => x.virtualPath && url.includes(x.virtualPath)) ||
             domainData.donors?.find((x) => url.includes(x.domain))
 
           const virtualPath = donor?.virtualPath || ''
 
-          text = replacerVirtualPath(text, virtualPath, [
-            'url(',
-            'url("',
-
-            'action="',
-            "action='",
-
-            'href="',
-            "href='",
-
-            'src="',
-            "src='"
-          ])
+          let content = getContentWithVirtualPath(text, virtualPath)
 
           if (isHtml) {
-            if (noBrowser) {
-              text = (!url.includes('?amp') && (await replaceHtml(text, donor?.cleanOpts, replacers))) || text
-              text = await removeTags(text, donor?.cleanOpts, removers)
-              text = await replaceCustoms(text, customs)
-            } else {
-              const cleanPwrt = await reTryCatch({
-                title: 'clean html',
-                fn: async () => {
-                  const pwrt = await GptBrowser.build<GptBrowser>(browserOpts, {
-                    deeplSettings,
-                    wtnSettings
-                  })
-                  const { content } = await pwrt!.getContent({
-                    donor,
-                    acceptor,
-                    url,
-                    html: text,
-                    replacers,
-                    removers,
-                    customs,
-                    isFlasher,
-                    rewriteOpts
-                  })
-                  await pwrt!.close()
-                  return content
-                }
-              })
+            const opts = {
+              text: content,
+              url,
+              acceptor,
+              isFlasher,
+              rewriteOpts,
+              browserOpts,
+              deeplSettings,
+              wtnSettings,
+              contentType,
+              domainData
+            }
+            const { content: cleanContent } = noBrowser
+              ? await this.getNoBrowserContent(opts)
+              : await this.getBrowserContent(opts)
 
-              if (cleanPwrt?.result?.length > 0) {
-                text = cleanPwrt.result
-              }
+            if (cleanContent) {
+              content = cleanContent
             }
           }
 
           if (!isHtml || noBrowser) {
             ;(domainData.donors?.map((d) => new URL(d.domain)) || []).forEach((donorInfo: URL) => {
-              text = text
+              content = content
                 .replace(new RegExp(donorInfo.host.toLowerCase(), 'gi'), acceptor.host + virtualPath)
                 .replace(new RegExp(donorInfo.protocol, 'gi'), acceptor.protocol)
             })
           }
 
-          text = text?.replaceAll('{ACCEPTOR_HOST}', `${acceptor.host}`)
-          text = text?.replaceAll('{ACCEPTOR_DOMAIN}', `${acceptor.domain}`)
+          content = content?.replaceAll('{ACCEPTOR_HOST}', `${acceptor.host}`)
+          content = content?.replaceAll('{ACCEPTOR_DOMAIN}', `${acceptor.domain}`)
 
           if (isHtml) {
-            text = await advertise(text, domainData)
+            content = await advertise(content, domainData)
           }
 
-          return text
+          return { content }
         },
-        defaultValue: text
+        defaultValue: { content: text }
       })
     ).result
+  }
+
+  private async getNoBrowserContent({ text, url, domainData }: TCleanSettings) {
+    const { removers, replacers, customs } = domainData
+    const donor =
+      domainData.donors?.find((x) => x.virtualPath && url.includes(x.virtualPath)) ||
+      domainData.donors?.find((x) => url.includes(x.domain))
+
+    let content = (!url.includes('?amp') && (await replaceHtml(text, donor?.cleanOpts, replacers))) || text
+    content = await removeTags(content, donor?.cleanOpts, removers)
+    content = await replaceCustoms(content, customs)
+
+    return { content }
+  }
+
+  private async getBrowserContent({
+    text,
+    url,
+    acceptor,
+    domainData,
+    isFlasher,
+    rewriteOpts,
+    browserOpts,
+    deeplSettings,
+    wtnSettings
+  }: TCleanSettings) {
+    const pwrt = await GptBrowser.build<GptBrowser>(browserOpts, {
+      deeplSettings,
+      wtnSettings
+    })
+    try {
+      const { removers, replacers, customs } = domainData
+      const donor =
+        domainData.donors?.find((x) => x.virtualPath && url.includes(x.virtualPath)) ||
+        domainData.donors?.find((x) => url.includes(x.domain))
+
+      return await pwrt!.getContent({
+        donor,
+        acceptor,
+        url,
+        html: text,
+        replacers,
+        removers,
+        customs,
+        isFlasher,
+        rewriteOpts
+      })
+    } catch (e: any) {
+    } finally {
+      await pwrt?.close()
+    }
+
+    return { content: text } as any
   }
 }
 
@@ -298,7 +326,7 @@ export async function advertise(html: string, domainData: TDomainData) {
   return html
 }
 
-export const replacerVirtualPath = (text: string, virtualPath: string, attrs: string[]) => {
+export function replacerVirtualPath(text: string, virtualPath?: string, attrs?: string[]) {
   if (!text || !virtualPath || !attrs?.length) {
     return text || ''
   }
@@ -314,4 +342,33 @@ export const replacerVirtualPath = (text: string, virtualPath: string, attrs: st
   }
 
   return text
+}
+
+export function getContentWithVirtualPath(text: string, virtualPath: string) {
+  return replacerVirtualPath(text, virtualPath, [
+    'url(',
+    'url("',
+
+    'action="',
+    "action='",
+
+    'href="',
+    "href='",
+
+    'src="',
+    "src='"
+  ])
+}
+
+export function extractPageDate(html: string) {
+  if (!html) {
+    return html
+  }
+  try {
+    const cheer = new CheerManager({ html })
+
+    return cheer.getHtml()
+  } catch {}
+
+  return html
 }
