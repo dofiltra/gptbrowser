@@ -56,7 +56,7 @@ export class CleaningSvc {
     deeplSettings,
     wtnSettings,
     needPageDate
-  }: TCleanSettings) {
+  }: TCleanSettings): Promise<{ content?: string; pageDate?: Date }> {
     return (
       await reTryCatch({
         title: 'getClean',
