@@ -56,7 +56,7 @@ export class CleaningSvc {
     deeplSettings,
     wtnSettings,
     needPageDate
-  }: TCleanSettings): Promise<string> {
+  }: TCleanSettings) {
     return (
       await reTryCatch({
         title: 'getClean',
@@ -110,7 +110,7 @@ export class CleaningSvc {
             pageDate = needPageDate && (await extractPageDate(content))
           }
 
-          return { content }
+          return { content, pageDate }
         },
         defaultValue: { content: text }
       })
@@ -366,7 +366,7 @@ export function getContentWithVirtualPath(text: string, virtualPath: string) {
 
 export async function extractPageDate(html: string) {
   if (!html) {
-    return new Date()
+    return null
   }
   try {
     const cheer = new CheerManager({ html })
@@ -406,5 +406,5 @@ export async function extractPageDate(html: string) {
     }
   } catch {}
 
-  return new Date()
+  return null
 }
