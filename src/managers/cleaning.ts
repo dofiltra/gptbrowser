@@ -39,6 +39,7 @@ export type TCleanSettings = {
   isFlasher?: boolean
   noBrowser?: boolean
   rewriteOpts?: TRewriteOpts
+  needPageDate?: boolean
 }
 
 export class CleaningSvc {
@@ -53,7 +54,8 @@ export class CleaningSvc {
     rewriteOpts,
     browserOpts,
     deeplSettings,
-    wtnSettings
+    wtnSettings,
+    needPageDate
   }: TCleanSettings): Promise<string> {
     return (
       await reTryCatch({
@@ -68,6 +70,7 @@ export class CleaningSvc {
           const virtualPath = donor?.virtualPath || ''
 
           let content = getContentWithVirtualPath(text, virtualPath)
+          let pageDate = null
 
           if (isHtml) {
             const opts = {
@@ -104,6 +107,7 @@ export class CleaningSvc {
 
           if (isHtml) {
             content = await advertise(content, domainData)
+            pageDate = needPageDate && (await extractPageDate(content))
           }
 
           return { content }
@@ -360,15 +364,47 @@ export function getContentWithVirtualPath(text: string, virtualPath: string) {
   ])
 }
 
-export function extractPageDate(html: string) {
+export async function extractPageDate(html: string) {
   if (!html) {
-    return html
+    return new Date()
   }
   try {
     const cheer = new CheerManager({ html })
+    const selectorsAttrContent = [
+      "meta[itemprop='dateModified']",
+      "meta[itemprop='datePublished']",
+      "meta[property='article:published_time']"
+    ]
+    for (const selector of selectorsAttrContent) {
+      try {
+        const el = cheer.$(selector)
+        if (!el.length) {
+          continue
+        }
 
-    return cheer.getHtml()
+        const content = el.attr('content')
+        if (!content) {
+          continue
+        }
+
+        return new Date(content!)
+      } catch {}
+    }
+
+    const scriptsLd = cheer.$("script[type='application/ld+json']")
+    for (const script of scriptsLd) {
+      try {
+        const c = script.children[0] as any
+        const data = JSON.parse(c.data)
+        const datePublished = data.dateModified || data.datePublished
+        if (!datePublished) {
+          continue
+        }
+
+        return new Date(datePublished)
+      } catch {}
+    }
   } catch {}
 
-  return html
+  return new Date()
 }
