@@ -373,7 +373,8 @@ export async function extractPageDate(html: string) {
     const selectorsAttrContent = [
       "meta[itemprop='dateModified']",
       "meta[itemprop='datePublished']",
-      "meta[property='article:published_time']"
+      "meta[property='article:published_time']",
+      "meta[property='og:updated_time']"
     ]
     for (const selector of selectorsAttrContent) {
       try {
