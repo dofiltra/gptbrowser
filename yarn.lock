@@ -445,14 +445,15 @@ deep-is@~0.1.3:
   resolved "https://registry.yarnpkg.com/deep-is/-/deep-is-0.1.4.tgz#a6f2dce612fadd2ef1f519b73551f17e85199831"
   integrity sha512-oIPzksmTg4/MriiaYGO+okXDT7ztn/w3Eptv/+gSIdMdKsJo0u4CfYNFJPy+4SKMuCqGw2wxnA+URMg3t8a/bQ==
 
-deepler@^1.1.5:
-  version "1.1.5"
-  resolved "https://registry.yarnpkg.com/deepler/-/deepler-1.1.5.tgz#5262e2e79d776feee6b8c9c0ba4178221edaae78"
-  integrity sha512-8CRFmP9cnhku3QYZNwYkeqTv/OpWkPsthbZeyZC7nJkwp0CTh4y5GoBQM3sssoG5uLFNM5DBumj6HoUF7kQp0w==
+deepler@^1.1.16:
+  version "1.1.16"
+  resolved "https://registry.yarnpkg.com/deepler/-/deepler-1.1.16.tgz#83e5b64f101fa289d4d86ff6a808df765629019b"
+  integrity sha512-+PwXMuvZz4X2BtyIEFUNzoY1ugZNoZS007kXWnS/QdbLl2eMJOGZebZpX3h6WUjivijVhGSex5246/ZVq+Nj3A==
   dependencies:
     browser-manager "^1.0.14"
     is-running-process "^1.0.0"
-    proxy-extract "^1.0.2"
+    make-fetch-happen "^9.1.0"
+    proxy-extract "^1.0.3"
     time-helpers "^1.0.0"
 
 delayed-stream@~1.0.0:
@@ -1257,7 +1258,7 @@ proper-lockfile@^4.1.1:
     retry "^0.12.0"
     signal-exit "^3.0.2"
 
-proxy-extract@^1.0.1, proxy-extract@^1.0.2:
+proxy-extract@^1.0.1, proxy-extract@^1.0.3:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/proxy-extract/-/proxy-extract-1.0.3.tgz#705956596f48edfa5be03b52d1df127c46974a46"
   integrity sha512-Bg0mlzjsRZZScHEVVugCh1PjL27m2SxDqzBOQN7TAky/q/qYO4ebuK5dqR/OW89hAyRZfWMLT3+d5AzUQJZHIw==
@@ -1335,19 +1336,19 @@ rimraf@^3.0.2:
   dependencies:
     glob "^7.1.3"
 
-rwrsvc@^1.1.15:
-  version "1.1.15"
-  resolved "https://registry.yarnpkg.com/rwrsvc/-/rwrsvc-1.1.15.tgz#a170ac729a2088cf9014e0dd5879969869562151"
-  integrity sha512-DzJkMxZqEOe6I96mFYpEL1SXHgnvaQIf4eitbFscZAOmqkd1Fn163+E/oD4AZcChe1i/vBjNzmFTHPcwVHXaMQ==
+rwrsvc@^1.1.17:
+  version "1.1.17"
+  resolved "https://registry.yarnpkg.com/rwrsvc/-/rwrsvc-1.1.17.tgz#b5ee4da9a11da7761e1b5fc107d0d314ee9effce"
+  integrity sha512-vgvmvZg8+z3rqcpzl7EQ5Yct5Ft4PzVuu0gmwM2o8/iZSpEQQCjdfwyr4rMsvURHZ2GRt4eqdhCE+CEOJPNb9Q==
   dependencies:
-    deepler "^1.1.5"
+    deepler "^1.1.16"
     diff-match-patch "^1.0.5"
     dotenv "^10.0.0"
     esm-requirer "^1.0.3"
     lodash "^4.17.21"
     split-helper "^1.0.1"
     time-helpers "^1.0.0"
-    wtn-svc "^1.1.6"
+    wtn-svc "^1.1.15"
 
 safe-buffer@~5.2.0:
   version "5.2.1"
@@ -1696,7 +1697,7 @@ ws@^8.2.3:
   resolved "https://registry.yarnpkg.com/ws/-/ws-8.2.3.tgz#63a56456db1b04367d0b721a0b80cae6d8becbba"
   integrity sha512-wBuoj1BDpC6ZQ1B7DWQBYVLphPWkm8i9Y0/3YdHjHKHiohOJ1ws+3OccDWtH+PoC9DZD5WOTrJvNbWvjS6JWaA==
 
-wtn-svc@^1.1.6:
+wtn-svc@^1.1.15:
   version "1.1.15"
   resolved "https://registry.yarnpkg.com/wtn-svc/-/wtn-svc-1.1.15.tgz#e86bc28d3d5e3e5d321cd6af55a86c16a350361f"
   integrity sha512-DbdRue6qdDo9pkD24zFswF/xcWR64eo/QR6EVAgwO9X5q+VcuTmrHSdMflybHIguxJy0qzw8Ikg/xLkDTMd2hA==

@@ -53,7 +53,7 @@
     "lodash": "^4.17.21",
     "mime-helper": "^1.0.1",
     "page-templator": "^1.0.3",
-    "rwrsvc": "^1.1.15",
+    "rwrsvc": "^1.1.17",
     "split-helper": "^1.0.1",
     "time-helpers": "^1.0.0"
   }
