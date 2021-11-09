@@ -107,7 +107,7 @@ export class GptBrowser extends BrowserManager {
     // await this.removeScripts(page, cleanOpts, removers, url)
     await this.replaceDomain(page, donor?.domain, virtualPath)
     await this.applyImages(page, donor?.domain, acceptor?.domain)
-    await this.rewrite(page, rewriteOpts)
+    const { errors: rewriteErrors } = await this.rewrite(page, rewriteOpts)
 
     let { title, descr, h1, content } = await this.extractPageInfo(
       page,
@@ -125,14 +125,23 @@ export class GptBrowser extends BrowserManager {
 
     await page?.close()
     this.lockClose()
-    return { title, descr, h1, content }
+    return {
+      title,
+      descr,
+      h1,
+      content,
+      errors: {
+        rewriteErrors
+      }
+    }
   }
 
   async rewrite(page: Page, rewriteOpts?: TRewriteOpts) {
     if (!rewriteOpts?.coefWtn) {
-      return
+      return {}
     }
 
+    const errors: any[] = []
     const threadsCount = GptBrowser.wtnSettings?.browserOpts?.maxOpenedBrowsers || 1
 
     try {
@@ -145,7 +154,10 @@ export class GptBrowser extends BrowserManager {
 
           while (i < els.length) {
             this.lockClose(300 * threadsCount)
-            await Promise.all(els.splice(i, i + threadsCount).map(async (el) => await this.rewriteElement(el, coefWtn)))
+            const results = await Promise.all(
+              els.splice(i, i + threadsCount).map(async (el) => await this.rewriteElement(el, coefWtn))
+            )
+            errors.push(...results.filter((r) => r?.errors).map((r) => r?.errors))
             i += threadsCount
           }
         } catch {}
@@ -153,6 +165,8 @@ export class GptBrowser extends BrowserManager {
     } catch {}
 
     this.lockClose()
+
+    return { errors }
   }
 
   async getRewritedResult(text: string, coefWtn: number) {
@@ -169,7 +183,7 @@ export class GptBrowser extends BrowserManager {
       return rewritedResult
     } catch (err: any) {
       this.lockClose()
-      return { text: '', err }
+      return { text: '', errors: { err } }
     }
   }
 
@@ -411,23 +425,25 @@ export class GptBrowser extends BrowserManager {
       const innerText = await el.innerText()
 
       if (!(await this.canBeRewrite(el, innerText))) {
-        return
+        return {}
       }
 
       this.lockClose(6e5)
-      const rewritedResult = await this.getRewritedResult(innerText, coefWtn)
+      const { text, errors = {} } = await this.getRewritedResult(innerText, coefWtn)
 
-      if (rewritedResult.err || !rewritedResult.text?.length || innerText === rewritedResult.text) {
-        return
+      if (Object.keys(errors).length || !text?.length || innerText === text) {
+        return { errors }
       }
 
       await el.evaluate(
         (e, { rewriteVal }) => {
           e.innerHTML = rewriteVal
         },
-        { rewriteVal: rewritedResult.text }
+        { rewriteVal: text }
       )
     } catch {}
+
+    return {}
   }
 
   // async removeHtml(page: Page, cleanOpts?: TCleanOpts, removers?: TRemovers) {

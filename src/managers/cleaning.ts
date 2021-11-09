@@ -141,7 +141,7 @@ export class CleaningSvc {
     deeplSettings,
     wtnSettings
   }: TCleanSettings) {
-    const pwrt = await GptBrowser.build<GptBrowser>(browserOpts, {
+    const browser = await GptBrowser.build<GptBrowser>(browserOpts, {
       deeplSettings,
       wtnSettings
     })
@@ -151,7 +151,7 @@ export class CleaningSvc {
         domainData.donors?.find((x) => x.virtualPath && url.includes(x.virtualPath)) ||
         domainData.donors?.find((x) => url.includes(x.domain))
 
-      return await pwrt!.getContent({
+      return await browser!.getContent({
         donor,
         acceptor,
         url,
@@ -164,7 +164,7 @@ export class CleaningSvc {
       })
     } catch (e: any) {
     } finally {
-      await pwrt?.close()
+      await browser?.close()
     }
 
     return { content: text } as any
@@ -183,8 +183,7 @@ export async function replaceCustoms(content?: string, customs?: TCustoms) {
   if (googleSiteVerification) {
     content = content.replace(
       '</head>',
-      `<meta name="google-site-verification" content="${googleSiteVerification}" />
-        </head>`
+      `<meta name="google-site-verification" content="${googleSiteVerification}" /></head>`
     )
   }
 

@@ -32,7 +32,7 @@
   "devDependencies": {
     "@types/jsdom": "^16.2.13",
     "@types/lodash": "^4.14.176",
-    "@types/node": "^16.11.6",
+    "@types/node": "^16.11.7",
     "prettier": "^2.4.1",
     "tslint": "^6.1.3",
     "tslint-config-prettier": "^1.18.0",
@@ -53,7 +53,7 @@
     "lodash": "^4.17.21",
     "mime-helper": "^1.0.1",
     "page-templator": "^1.0.3",
-    "rwrsvc": "^1.1.17",
+    "rwrsvc": "^1.1.18",
     "split-helper": "^1.0.1",
     "time-helpers": "^1.0.0"
   }
