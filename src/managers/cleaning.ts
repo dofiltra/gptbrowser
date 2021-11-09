@@ -56,65 +56,63 @@ export class CleaningSvc {
     deeplSettings,
     wtnSettings,
     needPageDate
-  }: TCleanSettings): Promise<{ content?: string; pageDate?: Date }> {
-    return (
-      await reTryCatch({
-        title: 'getClean',
-        fn: async () => {
-          const isHtml = contentType === mimeTypes.html
+  }: TCleanSettings): Promise<{ content?: string; pageDate?: Date; errors?: any }> {
+    try {
+      let errors: any = {}
+      const isHtml = contentType === mimeTypes.html
 
-          const donor =
-            domainData.donors?.find((x) => x.virtualPath && url.includes(x.virtualPath)) ||
-            domainData.donors?.find((x) => url.includes(x.domain))
+      const donor =
+        domainData.donors?.find((x) => x.virtualPath && url.includes(x.virtualPath)) ||
+        domainData.donors?.find((x) => url.includes(x.domain))
 
-          const virtualPath = donor?.virtualPath || ''
+      const virtualPath = donor?.virtualPath || ''
 
-          let content = getContentWithVirtualPath(text, virtualPath)
-          let pageDate = null
+      let content = getContentWithVirtualPath(text, virtualPath)
+      let pageDate: Date | undefined
 
-          if (isHtml) {
-            const opts = {
-              text: content,
-              url,
-              acceptor,
-              isFlasher,
-              rewriteOpts,
-              browserOpts,
-              deeplSettings,
-              wtnSettings,
-              contentType,
-              domainData
-            }
-            const { content: cleanContent } = noBrowser
-              ? await this.getNoBrowserContent(opts)
-              : await this.getBrowserContent(opts)
+      if (isHtml) {
+        const opts = {
+          text: content,
+          url,
+          acceptor,
+          isFlasher,
+          rewriteOpts,
+          browserOpts,
+          deeplSettings,
+          wtnSettings,
+          contentType,
+          domainData
+        }
+        const { content: cleanContent, errors: contentErrors } = noBrowser
+          ? await this.getNoBrowserContent(opts)
+          : await this.getBrowserContent(opts)
 
-            if (cleanContent) {
-              content = cleanContent
-            }
-          }
+        errors = { ...errors, contentErrors }
+        if (cleanContent) {
+          content = cleanContent
+        }
+      }
 
-          if (!isHtml || noBrowser) {
-            ;(domainData.donors?.map((d) => new URL(d.domain)) || []).forEach((donorInfo: URL) => {
-              content = content
-                .replace(new RegExp(donorInfo.host.toLowerCase(), 'gi'), acceptor.host + virtualPath)
-                .replace(new RegExp(donorInfo.protocol, 'gi'), acceptor.protocol)
-            })
-          }
+      if (!isHtml || noBrowser) {
+        ;(domainData.donors?.map((d) => new URL(d.domain)) || []).forEach((donorInfo: URL) => {
+          content = content
+            .replace(new RegExp(donorInfo.host.toLowerCase(), 'gi'), acceptor.host + virtualPath)
+            .replace(new RegExp(donorInfo.protocol, 'gi'), acceptor.protocol)
+        })
+      }
 
-          content = content?.replaceAll('{ACCEPTOR_HOST}', `${acceptor.host}`)
-          content = content?.replaceAll('{ACCEPTOR_DOMAIN}', `${acceptor.domain}`)
+      content = content?.replaceAll('{ACCEPTOR_HOST}', `${acceptor.host}`)
+      content = content?.replaceAll('{ACCEPTOR_DOMAIN}', `${acceptor.domain}`)
 
-          if (isHtml) {
-            content = await advertise(content, domainData)
-            pageDate = needPageDate && (await extractPageDate(content))
-          }
+      if (isHtml) {
+        content = await advertise(content, domainData)
+        pageDate = (needPageDate && (await extractPageDate(content))) || undefined
+      }
 
-          return { content, pageDate }
-        },
-        defaultValue: { content: text }
-      })
-    ).result
+      return { content, pageDate, errors }
+    } catch (err: any) {
+      return { content: text, errors: { err } }
+    }
   }
 
   private async getNoBrowserContent({ text, url, domainData }: TCleanSettings) {
