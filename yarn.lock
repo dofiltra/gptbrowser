@@ -422,7 +422,7 @@ deep-is@~0.1.3:
   resolved "https://registry.yarnpkg.com/deep-is/-/deep-is-0.1.4.tgz#a6f2dce612fadd2ef1f519b73551f17e85199831"
   integrity sha512-oIPzksmTg4/MriiaYGO+okXDT7ztn/w3Eptv/+gSIdMdKsJo0u4CfYNFJPy+4SKMuCqGw2wxnA+URMg3t8a/bQ==
 
-deepler@^1.1.16:
+deepler@^1.1.17:
   version "1.1.17"
   resolved "https://registry.yarnpkg.com/deepler/-/deepler-1.1.17.tgz#b384c99bfc5669ece46f6ea29a204e315b5285ba"
   integrity sha512-gHFrtut9mzbWTDsF1hVbaYoEMJ3A3Nn1VIKY0gpxQQ8llfoGBdnZrKhuEjdhR86/CbdccaC0WmoL4FXXiIwUgQ==
@@ -1226,19 +1226,19 @@ rimraf@^3.0.2:
   dependencies:
     glob "^7.1.3"
 
-rwrsvc@^1.2.2:
-  version "1.2.2"
-  resolved "https://registry.yarnpkg.com/rwrsvc/-/rwrsvc-1.2.2.tgz#10599e66f21f1eb95130842261f0d6d73219cb49"
-  integrity sha512-ZcJL571e5cucSnRsnMp2Gl67MAppJEAgQO8FsMAhf2CP6isGxNlS+YWTOHMtIvm/Zv75wWldcgYjgIRqqDsFoQ==
+rwrsvc@^1.2.4:
+  version "1.2.4"
+  resolved "https://registry.yarnpkg.com/rwrsvc/-/rwrsvc-1.2.4.tgz#bc9ed3122c9f8f40675c8acc33d8f43b4663266f"
+  integrity sha512-iyFijtT1qsWB7BcBgMP6HxhAYGjY57UuN/xcq+BbuzcO210hv9N+RgJEeZ/WOAPU4v7q2sPssjGjGONQfozwrw==
   dependencies:
-    deepler "^1.1.16"
+    deepler "^1.1.17"
     diff-match-patch "^1.0.5"
     dotenv "^10.0.0"
     esm-requirer "^1.0.3"
     lodash "^4.17.21"
     split-helper "^1.0.2"
     time-helpers "^1.0.0"
-    wtn-svc "^1.1.16"
+    wtn-svc "^1.1.17"
 
 "safer-buffer@>= 2.1.2 < 3.0.0":
   version "2.1.2"
@@ -1541,7 +1541,7 @@ ws@^8.2.3:
   resolved "https://registry.yarnpkg.com/ws/-/ws-8.2.3.tgz#63a56456db1b04367d0b721a0b80cae6d8becbba"
   integrity sha512-wBuoj1BDpC6ZQ1B7DWQBYVLphPWkm8i9Y0/3YdHjHKHiohOJ1ws+3OccDWtH+PoC9DZD5WOTrJvNbWvjS6JWaA==
 
-wtn-svc@^1.1.16:
+wtn-svc@^1.1.17:
   version "1.1.17"
   resolved "https://registry.yarnpkg.com/wtn-svc/-/wtn-svc-1.1.17.tgz#2893a794b2d1b11289b2886c05816331f6b542a4"
   integrity sha512-XicKQHYwx1S4G7ROQF2mvT/oaYDYrZOPNAbfAI9Ocf+7YvbRBx4TCDQdLRbtat+4PDVgLQ/QBahMjEW7SrFUjg==
