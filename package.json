@@ -1,6 +1,6 @@
 {
   "name": "gptbrowser",
-  "version": "1.1.32",
+  "version": "1.1.33",
   "description": "",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -47,13 +47,13 @@
     "cheer-manager": "^1.0.1",
     "cheerio": "^1.0.0-rc.10",
     "dotenv": "^10.0.0",
-    "dprx-types": "^1.0.20",
+    "dprx-types": "^1.0.21",
     "esm-requirer": "^1.0.3",
     "jsdom": "^18.1.0",
     "lodash": "^4.17.21",
     "mime-helper": "^1.0.1",
     "page-templator": "^1.0.3",
-    "rwrsvc": "^1.2.4",
+    "rwrsvc": "^1.2.6",
     "split-helper": "^1.0.2",
     "time-helpers": "^1.0.0"
   }
