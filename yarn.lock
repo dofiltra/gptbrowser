@@ -394,10 +394,10 @@ data-urls@^3.0.1:
     whatwg-mimetype "^3.0.0"
     whatwg-url "^10.0.0"
 
-dbtempo@^1.0.2:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/dbtempo/-/dbtempo-1.0.2.tgz#1e714a1de46fdf44a05fa5e808d7ba1fdda43b41"
-  integrity sha512-zvdjZQQKySp93h67zY0TXAxfbmDayrlitmCxrhAn1MeeBr5zP+cNG38vvDRob0zSlEXyZXEKgR3GefxHk6vcFQ==
+dbtempo@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/dbtempo/-/dbtempo-1.0.3.tgz#056b325b003bb35c6a3d3167f31af2484e470cc8"
+  integrity sha512-yjPutZOWnrO1KvbFOCGuowQPfS1Rxmg7Z3BSqpGUeiJZZ33LrGpw3CeIKQxTAkQrmA0QJSfDCWxpfFVV8LOKQQ==
   dependencies:
     fs-extreme "^1.0.1"
     is-running-process "^1.0.0"
@@ -423,12 +423,12 @@ deep-is@~0.1.3:
   integrity sha512-oIPzksmTg4/MriiaYGO+okXDT7ztn/w3Eptv/+gSIdMdKsJo0u4CfYNFJPy+4SKMuCqGw2wxnA+URMg3t8a/bQ==
 
 deepler@^1.1.17:
-  version "1.1.17"
-  resolved "https://registry.yarnpkg.com/deepler/-/deepler-1.1.17.tgz#b384c99bfc5669ece46f6ea29a204e315b5285ba"
-  integrity sha512-gHFrtut9mzbWTDsF1hVbaYoEMJ3A3Nn1VIKY0gpxQQ8llfoGBdnZrKhuEjdhR86/CbdccaC0WmoL4FXXiIwUgQ==
+  version "1.1.18"
+  resolved "https://registry.yarnpkg.com/deepler/-/deepler-1.1.18.tgz#e86ca1ce6d38d57a065b9334d86cbb9e02cd825f"
+  integrity sha512-ZOr1kBtLYI3nSTF/X1Vhzi5x5LzXwNfStS6WJdT8H7N3NoUeGihGO3dTFLKaW3sQFNW9pU0S69VPYzsF86j8lA==
   dependencies:
     browser-manager "^1.0.14"
-    dbtempo "^1.0.2"
+    dbtempo "^1.0.3"
     is-running-process "^1.0.0"
     lodash "^4.17.21"
     make-fetch-happen "^9.1.0"
@@ -1542,12 +1542,12 @@ ws@^8.2.3:
   integrity sha512-wBuoj1BDpC6ZQ1B7DWQBYVLphPWkm8i9Y0/3YdHjHKHiohOJ1ws+3OccDWtH+PoC9DZD5WOTrJvNbWvjS6JWaA==
 
 wtn-svc@^1.1.17:
-  version "1.1.17"
-  resolved "https://registry.yarnpkg.com/wtn-svc/-/wtn-svc-1.1.17.tgz#2893a794b2d1b11289b2886c05816331f6b542a4"
-  integrity sha512-XicKQHYwx1S4G7ROQF2mvT/oaYDYrZOPNAbfAI9Ocf+7YvbRBx4TCDQdLRbtat+4PDVgLQ/QBahMjEW7SrFUjg==
+  version "1.1.18"
+  resolved "https://registry.yarnpkg.com/wtn-svc/-/wtn-svc-1.1.18.tgz#96f1bf5da32ff3f9776fd83b331e304ac6416d70"
+  integrity sha512-12madP9txqdXiF+s6VUj2lA3mwhjX2Vu3LJrov5LnlqekkePQ218d8xGSlNJPiPsaEmUPc1v6JMm33uGMaxg/w==
   dependencies:
     browser-manager "^1.1.15"
-    dbtempo "^1.0.2"
+    dbtempo "^1.0.3"
     is-running-process "^1.0.0"
     lodash "^4.17.21"
     make-fetch-happen "^9.1.0"
