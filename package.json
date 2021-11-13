@@ -47,14 +47,14 @@
     "cheer-manager": "^1.0.1",
     "cheerio": "^1.0.0-rc.10",
     "dotenv": "^10.0.0",
-    "dprx-types": "^1.0.13",
+    "dprx-types": "^1.0.20",
     "esm-requirer": "^1.0.3",
-    "jsdom": "^18.0.1",
+    "jsdom": "^18.1.0",
     "lodash": "^4.17.21",
     "mime-helper": "^1.0.1",
     "page-templator": "^1.0.3",
-    "rwrsvc": "^1.1.18",
-    "split-helper": "^1.0.1",
+    "rwrsvc": "^1.2.2",
+    "split-helper": "^1.0.2",
     "time-helpers": "^1.0.0"
   }
 }
