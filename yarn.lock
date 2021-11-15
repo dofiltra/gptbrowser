@@ -394,10 +394,10 @@ data-urls@^3.0.1:
     whatwg-mimetype "^3.0.0"
     whatwg-url "^10.0.0"
 
-dbtempo@^1.0.4:
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/dbtempo/-/dbtempo-1.0.4.tgz#c54763e29ed146d45476c7ebbdefe064bd6082fc"
-  integrity sha512-OVEkF0dNDttCD9bCAihxoaMW++5LyYjHDYLBleF8tFIPsDJ1zGSuCneepAzCj7cOwQevUpu+jdksDvUg9HuEKA==
+dbtempo@^1.0.5:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/dbtempo/-/dbtempo-1.0.5.tgz#b00adac1393947b31b5366e12b95b893eaf86156"
+  integrity sha512-azC5MbpDhxi0Jf+WDMhVt61X1TdnukRvH64DdSVuTB0RfI7U1G/du/Fyb6PaohbteXUhcaifMOmyasxMorQ/9Q==
   dependencies:
     fs-extreme "^1.0.1"
     is-running-process "^1.0.0"
@@ -423,12 +423,12 @@ deep-is@~0.1.3:
   integrity sha512-oIPzksmTg4/MriiaYGO+okXDT7ztn/w3Eptv/+gSIdMdKsJo0u4CfYNFJPy+4SKMuCqGw2wxnA+URMg3t8a/bQ==
 
 deepler@^1.1.19:
-  version "1.1.19"
-  resolved "https://registry.yarnpkg.com/deepler/-/deepler-1.1.19.tgz#bad0e82394950727a117e09251f3fe4333dbf48c"
-  integrity sha512-GyXKD+0mjwEAZJvqFkqn/CZm6hN9XD8VqP6jDRZD94XaqxI4mo80CNaCTS7JLRckztf2YzO5fGQP5onlFZ59iQ==
+  version "1.1.20"
+  resolved "https://registry.yarnpkg.com/deepler/-/deepler-1.1.20.tgz#7d672ee42838f2153a8bcb540c91087976775dcc"
+  integrity sha512-FAT+XgnpNMTP4SKPJCobn1QQJ7F3rZ0f0cM+Gy7SRzHv3/of0gbnv+jFMKOHtQjthHPMm9rqXf0scXYVJPSX+Q==
   dependencies:
     browser-manager "^1.0.14"
-    dbtempo "^1.0.4"
+    dbtempo "^1.0.5"
     is-running-process "^1.0.0"
     lodash "^4.17.21"
     make-fetch-happen "^9.1.0"
@@ -1226,10 +1226,10 @@ rimraf@^3.0.2:
   dependencies:
     glob "^7.1.3"
 
-rwrsvc@^1.2.6:
-  version "1.2.6"
-  resolved "https://registry.yarnpkg.com/rwrsvc/-/rwrsvc-1.2.6.tgz#82e30b1c194dc00e4eb45a1848dc12b662541226"
-  integrity sha512-Mnw+YyPq9OCZj7XFGpKjZ/JXGzyV8U7D57r526/NIl1x+/dxBpPZ+ubUDOKXwyzCVFuPk+dw+27D7ugzvPaBfw==
+rwrsvc@^1.2.7:
+  version "1.2.7"
+  resolved "https://registry.yarnpkg.com/rwrsvc/-/rwrsvc-1.2.7.tgz#9187bd89dcbb505efb95c56b34a65e4756499d55"
+  integrity sha512-2VRbaEuDM0JqmBTZ8V/nApJECg40br25DsVpBrUqzUeftGOMpSDA76RHmvWMH4TTY7Eq/jHBzgHbenxJWJV2kQ==
   dependencies:
     deepler "^1.1.19"
     diff-match-patch "^1.0.5"
@@ -1542,12 +1542,12 @@ ws@^8.2.3:
   integrity sha512-wBuoj1BDpC6ZQ1B7DWQBYVLphPWkm8i9Y0/3YdHjHKHiohOJ1ws+3OccDWtH+PoC9DZD5WOTrJvNbWvjS6JWaA==
 
 wtn-svc@^1.1.19:
-  version "1.1.19"
-  resolved "https://registry.yarnpkg.com/wtn-svc/-/wtn-svc-1.1.19.tgz#6690b2fe81c0d524de3590b5d9e32890b25af8c9"
-  integrity sha512-wDYIwiFh3V1NslvnN7nNaeBz50rDdu8laxrTqF058lEa8RLxWXBi4ZSBSAx4l+X5DRExPL5aWy6VnIvH1AEwyA==
+  version "1.1.20"
+  resolved "https://registry.yarnpkg.com/wtn-svc/-/wtn-svc-1.1.20.tgz#20c31b93693a622c3737bd4500560bdbcadb31f7"
+  integrity sha512-1vDiob+iGalIMxQgFr+z3+NQEiKUDpLzJNlKrjWIQMd+3/ES9RFJgy4WJlT1nhkVFNvGuSdKG7hwd2Spke3rbQ==
   dependencies:
     browser-manager "^1.1.15"
-    dbtempo "^1.0.4"
+    dbtempo "^1.0.5"
     is-running-process "^1.0.0"
     lodash "^4.17.21"
     make-fetch-happen "^9.1.0"
