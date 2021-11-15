@@ -422,7 +422,7 @@ deep-is@~0.1.3:
   resolved "https://registry.yarnpkg.com/deep-is/-/deep-is-0.1.4.tgz#a6f2dce612fadd2ef1f519b73551f17e85199831"
   integrity sha512-oIPzksmTg4/MriiaYGO+okXDT7ztn/w3Eptv/+gSIdMdKsJo0u4CfYNFJPy+4SKMuCqGw2wxnA+URMg3t8a/bQ==
 
-deepler@^1.1.19:
+deepler@^1.1.20:
   version "1.1.20"
   resolved "https://registry.yarnpkg.com/deepler/-/deepler-1.1.20.tgz#7d672ee42838f2153a8bcb540c91087976775dcc"
   integrity sha512-FAT+XgnpNMTP4SKPJCobn1QQJ7F3rZ0f0cM+Gy7SRzHv3/of0gbnv+jFMKOHtQjthHPMm9rqXf0scXYVJPSX+Q==
@@ -1226,19 +1226,19 @@ rimraf@^3.0.2:
   dependencies:
     glob "^7.1.3"
 
-rwrsvc@^1.2.7:
-  version "1.2.7"
-  resolved "https://registry.yarnpkg.com/rwrsvc/-/rwrsvc-1.2.7.tgz#9187bd89dcbb505efb95c56b34a65e4756499d55"
-  integrity sha512-2VRbaEuDM0JqmBTZ8V/nApJECg40br25DsVpBrUqzUeftGOMpSDA76RHmvWMH4TTY7Eq/jHBzgHbenxJWJV2kQ==
+rwrsvc@^1.2.9:
+  version "1.2.9"
+  resolved "https://registry.yarnpkg.com/rwrsvc/-/rwrsvc-1.2.9.tgz#d83a2c1bebff1853390bc059c1b80b1ba49b179f"
+  integrity sha512-HHQUi/iYzLXPda0ynF3kC2R4BbyEg1e4wN4Jp/qvZAVMuzJ4eJSGhl+WdtBz4z3qSDRkUePaZ80C0OZ11lNfow==
   dependencies:
-    deepler "^1.1.19"
+    deepler "^1.1.20"
     diff-match-patch "^1.0.5"
     dotenv "^10.0.0"
     esm-requirer "^1.0.3"
     lodash "^4.17.21"
-    split-helper "^1.0.2"
+    split-helper "^1.0.4"
     time-helpers "^1.0.0"
-    wtn-svc "^1.1.19"
+    wtn-svc "^1.1.20"
 
 "safer-buffer@>= 2.1.2 < 3.0.0":
   version "2.1.2"
@@ -1304,10 +1304,10 @@ source-map@~0.6.1:
   resolved "https://registry.yarnpkg.com/source-map/-/source-map-0.6.1.tgz#74722af32e9614e9c287a8d0bbde48b5e2f1a263"
   integrity sha512-UjgapumWlbMhkBgzT7Ykc5YXUT46F0iKu8SGXq0bcwP5dz/h0Plj6enJqjz1Zbq2l5WaqYnrVbwWOWMyF3F47g==
 
-split-helper@^1.0.2:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/split-helper/-/split-helper-1.0.2.tgz#68ce9e9777f429d572029a1ff17a230eb30fb5e3"
-  integrity sha512-NhNgbZQ1BtPFhAtzZr2ulEV4ACGyx8eWC9KulO/GScTTscJxFXBQQF1wjaNiiqJF0qitFFcoHu3O1CxAE2gq0Q==
+split-helper@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/split-helper/-/split-helper-1.0.4.tgz#2955d0b494e7225f4b21caa5f8ad6ae25161d20e"
+  integrity sha512-NX7T729O+Xj+5S9A/Zr07JOf+/REMeCpEqvmg0042QTFvAxUXtvTDCX1/ILZ8ieEtpt020p/Xw0qXUVm+SeQoQ==
   dependencies:
     is-running-process "^1.0.0"
     lodash "^4.17.21"
@@ -1541,7 +1541,7 @@ ws@^8.2.3:
   resolved "https://registry.yarnpkg.com/ws/-/ws-8.2.3.tgz#63a56456db1b04367d0b721a0b80cae6d8becbba"
   integrity sha512-wBuoj1BDpC6ZQ1B7DWQBYVLphPWkm8i9Y0/3YdHjHKHiohOJ1ws+3OccDWtH+PoC9DZD5WOTrJvNbWvjS6JWaA==
 
-wtn-svc@^1.1.19:
+wtn-svc@^1.1.20:
   version "1.1.20"
   resolved "https://registry.yarnpkg.com/wtn-svc/-/wtn-svc-1.1.20.tgz#20c31b93693a622c3737bd4500560bdbcadb31f7"
   integrity sha512-1vDiob+iGalIMxQgFr+z3+NQEiKUDpLzJNlKrjWIQMd+3/ES9RFJgy4WJlT1nhkVFNvGuSdKG7hwd2Spke3rbQ==
