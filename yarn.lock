@@ -68,10 +68,10 @@
     "@types/parse5" "*"
     "@types/tough-cookie" "*"
 
-"@types/lodash@^4.14.176":
-  version "4.14.176"
-  resolved "https://registry.yarnpkg.com/@types/lodash/-/lodash-4.14.176.tgz#641150fc1cda36fbfa329de603bbb175d7ee20c0"
-  integrity sha512-xZmuPTa3rlZoIbtDUyJKZQimJV3bxCmzMIO2c9Pz9afyDro6kr7R79GwcB6mRhuoPmV2p1Vb66WOJH7F886WKQ==
+"@types/lodash@^4.14.177":
+  version "4.14.177"
+  resolved "https://registry.yarnpkg.com/@types/lodash/-/lodash-4.14.177.tgz#f70c0d19c30fab101cad46b52be60363c43c4578"
+  integrity sha512-0fDwydE2clKe9MNfvXHBHF9WEahRuj+msTuQqOmAApNORFvhMYZKNGGJdCzuhheVjMps/ti0Ak/iJPACMaevvw==
 
 "@types/node@*", "@types/node@^16.11.7":
   version "16.11.7"
@@ -423,9 +423,9 @@ deep-is@~0.1.3:
   integrity sha512-oIPzksmTg4/MriiaYGO+okXDT7ztn/w3Eptv/+gSIdMdKsJo0u4CfYNFJPy+4SKMuCqGw2wxnA+URMg3t8a/bQ==
 
 deepler@^1.1.20:
-  version "1.1.20"
-  resolved "https://registry.yarnpkg.com/deepler/-/deepler-1.1.20.tgz#7d672ee42838f2153a8bcb540c91087976775dcc"
-  integrity sha512-FAT+XgnpNMTP4SKPJCobn1QQJ7F3rZ0f0cM+Gy7SRzHv3/of0gbnv+jFMKOHtQjthHPMm9rqXf0scXYVJPSX+Q==
+  version "1.1.21"
+  resolved "https://registry.yarnpkg.com/deepler/-/deepler-1.1.21.tgz#e80f9af01f58f5d9f5a7ae2ee70068d6c927e7c3"
+  integrity sha512-50Tk518IMqO0QPV/wNPrlDOENUeh3VS8QDAg5htNCUs8rnfqmuzWMDYqO6SYpsghlJ0NyHh/AFF2nFCqUo8C1w==
   dependencies:
     browser-manager "^1.0.14"
     dbtempo "^1.0.5"
@@ -496,10 +496,10 @@ dotenv@^10.0.0:
   resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-10.0.0.tgz#3d4227b8fb95f81096cdd2b66653fb2c7085ba81"
   integrity sha512-rlBi9d8jpv9Sf1klPjNfFAuWDjKLwTIJJ/VxtoTwIR6hnZxcEOQCZg2oIL3MWBYw5GpUDKOEnND7LXTbIpQ03Q==
 
-dprx-types@^1.0.21:
-  version "1.0.21"
-  resolved "https://registry.yarnpkg.com/dprx-types/-/dprx-types-1.0.21.tgz#dccbc5f72ba71d4ee454345f99aab86ccfceaa38"
-  integrity sha512-KF7j51eQB8E4FMtwTVp+BEiD6rOH7o7G0xLwGMnQbDgyWPvjHJOy8+wbUO3YKNYNEay2jlp0FoMi6st6g4tsBQ==
+dprx-types@^1.0.24:
+  version "1.0.24"
+  resolved "https://registry.yarnpkg.com/dprx-types/-/dprx-types-1.0.24.tgz#1dcb8b96d542ecde90453a34a315a5e570aafd48"
+  integrity sha512-ioioQaeUtRoK5hjzRvE5K6oZTK21NFRphWG+jGTtUlQE1NN19HQU6wNdM5uvw15O7SS2gvnvN4ThatTx80XDig==
   dependencies:
     dotenv "^10.0.0"
     esm-requirer "^1.0.3"
