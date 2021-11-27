@@ -1,6 +1,6 @@
 {
   "name": "gptbrowser",
-  "version": "1.1.40",
+  "version": "1.1.41",
   "description": "",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -53,7 +53,7 @@
     "lodash": "^4.17.21",
     "mime-helper": "^1.0.1",
     "page-templator": "^1.0.3",
-    "rwrsvc": "^1.2.20",
+    "rwrsvc": "^1.2.21",
     "split-helper": "^1.0.4",
     "time-helpers": "^1.0.0"
   }
