@@ -31,30 +31,30 @@
   "homepage": "https://github.com/Ty4ka/gptbrowser#readme",
   "devDependencies": {
     "@types/jsdom": "^16.2.13",
-    "@types/lodash": "^4.14.177",
-    "@types/node": "^16.11.10",
-    "prettier": "^2.5.0",
+    "@types/lodash": "^4.14.178",
+    "@types/node": "^17.0.1",
+    "prettier": "^2.5.1",
     "tslint": "^6.1.3",
     "tslint-config-prettier": "^1.18.0",
-    "typescript": "^4.5.2"
+    "typescript": "^4.5.4"
   },
   "files": [
     "lib/**/*"
   ],
   "dependencies": {
     "@mozilla/readability": "^0.4.1",
-    "browser-manager": "^1.1.16",
+    "browser-manager": "^1.1.18",
     "cheer-manager": "^1.0.1",
     "cheerio": "^1.0.0-rc.10",
     "dotenv": "^10.0.0",
-    "dprx-types": "^1.0.33",
+    "dprx-types": "^1.1.10",
     "esm-requirer": "^1.0.3",
-    "jsdom": "^18.1.1",
+    "jsdom": "^19.0.0",
     "lodash": "^4.17.21",
     "mime-helper": "^1.0.1",
     "page-templator": "^1.0.3",
-    "rwrsvc": "^1.2.21",
-    "split-helper": "^1.0.4",
+    "rwrsvc": "^1.3.22",
+    "split-helper": "^1.0.9",
     "time-helpers": "^1.0.0"
   }
 }
