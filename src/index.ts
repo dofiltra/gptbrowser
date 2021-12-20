@@ -27,12 +27,12 @@ import {
 } from 'dprx-types'
 
 import { removeTags, replaceCustoms, replaceHtml } from './managers/cleaning'
-import { RewriteSvc, TDeeplSettings, TWtnSettings } from 'rwrsvc'
+import { RewriteSvc, TInstanceOpts, TWtnSettings } from 'rwrsvc'
 import { reTryCatch } from 'esm-requirer'
-import { getMicroSplits } from 'split-helper'
 import { TemplateDarkBootstrap } from 'page-templator'
 import { extractSelectorValue } from './managers/extractors'
 import { TBrowserOpts } from 'browser-manager/lib/types'
+import { getMicroSplits } from 'split-helper'
 
 const { JSDOM } = jsdom
 
@@ -51,17 +51,17 @@ export type TContentSettings = {
 }
 
 export type TDependSettings = {
-  deeplSettings?: TDeeplSettings
+  transSettings?: TInstanceOpts[]
   wtnSettings?: TWtnSettings
 }
 
 export class GptBrowser extends BrowserManager {
   private static wtnSettings?: TWtnSettings
-  private static deeplSettings?: TDeeplSettings
+  private static transSettings?: TInstanceOpts[]
 
   static async build<T>(browserOpts: TBrowserOpts, dependOpts?: TDependSettings): Promise<T | null> {
     GptBrowser.wtnSettings = dependOpts?.wtnSettings
-    GptBrowser.deeplSettings = dependOpts?.deeplSettings
+    GptBrowser.transSettings = dependOpts?.transSettings
 
     return super.build(browserOpts)
   }
@@ -174,7 +174,7 @@ export class GptBrowser extends BrowserManager {
 
     try {
       const rewritedResult = await new RewriteSvc({
-        deeplSettings: GptBrowser.deeplSettings,
+        transSettings: GptBrowser.transSettings,
         wtnSettings: GptBrowser.wtnSettings
       }).rewrite({
         text,

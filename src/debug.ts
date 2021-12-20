@@ -2,7 +2,6 @@
 // import fetch from 'node-fetch'
 
 // ;(async () => {
- 
 
 //   //   const resp1 = await fetch(
 //   //     'https://noalkogolizm.ru/news/news/2021/11/07/massovo-zaboleli-grippom-igroki-hokkeynogo-kluba-salavat-yulaev.html'

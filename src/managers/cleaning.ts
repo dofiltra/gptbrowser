@@ -9,7 +9,6 @@
 /* tslint:disable:no-unused-expression */
 
 import { CheerManager } from 'cheer-manager'
-import { TDeeplSettings } from 'deepler'
 import {
   TCustoms,
   TCleanOpts,
@@ -21,9 +20,9 @@ import {
   TAcceptorInfo,
   TRewriteOpts
 } from 'dprx-types'
-import { reTryCatch } from 'esm-requirer'
 import _ from 'lodash'
 import { mimeTypes } from 'mime-helper'
+import { TInstanceOpts } from 'rwrsvc'
 import { TWtnSettings } from 'wtn-svc'
 import { GptBrowser, TBrowserOpts } from '..'
 
@@ -35,7 +34,7 @@ export type TCleanSettings = {
   acceptor: TAcceptorInfo
   browserOpts: TBrowserOpts
   wtnSettings?: TWtnSettings
-  deeplSettings?: TDeeplSettings
+  transSettings?: TInstanceOpts[]
   isFlasher?: boolean
   noBrowser?: boolean
   rewriteOpts?: TRewriteOpts
@@ -53,7 +52,7 @@ export class CleaningSvc {
     noBrowser,
     rewriteOpts,
     browserOpts,
-    deeplSettings,
+    transSettings,
     wtnSettings,
     needPageDate
   }: TCleanSettings): Promise<{ content?: string; pageDate?: Date; errors?: any }> {
@@ -78,7 +77,7 @@ export class CleaningSvc {
           isFlasher,
           rewriteOpts,
           browserOpts,
-          deeplSettings,
+          transSettings,
           wtnSettings,
           contentType,
           domainData
@@ -136,11 +135,11 @@ export class CleaningSvc {
     isFlasher,
     rewriteOpts,
     browserOpts,
-    deeplSettings,
+    transSettings,
     wtnSettings
   }: TCleanSettings) {
     const browser = await GptBrowser.build<GptBrowser>(browserOpts, {
-      deeplSettings,
+      transSettings,
       wtnSettings
     })
     try {
