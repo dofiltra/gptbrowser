@@ -569,16 +569,16 @@ deep-is@~0.1.3:
   resolved "https://registry.yarnpkg.com/deep-is/-/deep-is-0.1.4.tgz#a6f2dce612fadd2ef1f519b73551f17e85199831"
   integrity sha512-oIPzksmTg4/MriiaYGO+okXDT7ztn/w3Eptv/+gSIdMdKsJo0u4CfYNFJPy+4SKMuCqGw2wxnA+URMg3t8a/bQ==
 
-deepler@^1.2.13:
-  version "1.2.13"
-  resolved "https://registry.yarnpkg.com/deepler/-/deepler-1.2.13.tgz#baa5215a75ebea25de3f1264c82ab67eec7ae56b"
-  integrity sha512-Yts3+u2x96fg76CkXpkfpLHndeoSeKkffFS8c2tf2LYPof/77vm9ebiWrtVoVWhaRbtX5MYG4Wtb01zgjEGdlQ==
+deepler@^1.2.19:
+  version "1.2.19"
+  resolved "https://registry.yarnpkg.com/deepler/-/deepler-1.2.19.tgz#2ddfe262e545867d1ad41a38038d4622b2683feb"
+  integrity sha512-XBgAbJIH6j8LWuR1BWGVc873nzItXbd0PFpocXxgh0YISUs4BOkTa5S6P5ObNAARrUfmNQIuDPopY0SOTS28YQ==
   dependencies:
     "@vitalets/google-translate-api" "^7.0.0"
     browser-manager "^1.1.18"
     dofiltra_api "^1.1.40"
     dotenv "^10.0.0"
-    dprx-types "^1.1.16"
+    dprx-types "^1.1.19"
     is-running-process "^1.0.0"
     lodash "^4.17.21"
     make-fetch-happen "^9.1.0"
@@ -628,7 +628,7 @@ docopt@~0.6.2:
   resolved "https://registry.yarnpkg.com/docopt/-/docopt-0.6.2.tgz#b28e9e2220da5ec49f7ea5bb24a47787405eeb11"
   integrity sha1-so6eIiDaXsSffqW7JKR3h0Be6xE=
 
-dofiltra_api@^1.1.38, dofiltra_api@^1.1.40:
+dofiltra_api@^1.1.40:
   version "1.1.40"
   resolved "https://registry.yarnpkg.com/dofiltra_api/-/dofiltra_api-1.1.40.tgz#03940e7afa0f9390285d3d265dccf0cac1724311"
   integrity sha512-B30elfKu1UzhidjEH+ON7tD7DSAUcdcMT5gdMsJnqMQ+a8ZEZ5BTW2ZM4F5fSh2a42wlP47plFXwIU37kYZdcA==
@@ -707,12 +707,12 @@ dotenv@^10.0.0:
   resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-10.0.0.tgz#3d4227b8fb95f81096cdd2b66653fb2c7085ba81"
   integrity sha512-rlBi9d8jpv9Sf1klPjNfFAuWDjKLwTIJJ/VxtoTwIR6hnZxcEOQCZg2oIL3MWBYw5GpUDKOEnND7LXTbIpQ03Q==
 
-dprx-types@^1.1.10, dprx-types@^1.1.14, dprx-types@^1.1.16:
-  version "1.1.16"
-  resolved "https://registry.yarnpkg.com/dprx-types/-/dprx-types-1.1.16.tgz#c81ba5feb7e6eaab35e3a070003bea8aee79ece5"
-  integrity sha512-+Ttu+75ChSmltkUhOfc6/zvmUhCLMF6U7BcSmMvOwt9FZLtWjwmMBLXtjN3iK7Tj3lr9nul9Co2lZdnN7C3AXg==
+dprx-types@^1.1.10, dprx-types@^1.1.19:
+  version "1.1.19"
+  resolved "https://registry.yarnpkg.com/dprx-types/-/dprx-types-1.1.19.tgz#45804ff63e6783811542aec5a8b4c9e768679dec"
+  integrity sha512-oSNhNs/AuUpy721+yMmf2Pfs2L+Q6lF33ZSr+uIjiHi4G+tOVkl5dMZNcWnnFGlJzMuRK1AOMiDdduMPWrHdUA==
   dependencies:
-    dofiltra_api "^1.1.38"
+    dofiltra_api "^1.1.40"
     dotenv "^10.0.0"
     esm-requirer "^1.0.3"
     make-fetch-happen "^9.1.0"
@@ -1672,21 +1672,21 @@ rimraf@^3.0.2:
   dependencies:
     glob "^7.1.3"
 
-rwrsvc@^1.3.38:
-  version "1.3.38"
-  resolved "https://registry.yarnpkg.com/rwrsvc/-/rwrsvc-1.3.38.tgz#14ff65323fbd77d74d8f106e322b024479116c12"
-  integrity sha512-wJ3hf0TXqgwwVavoIvxAJ1Joo/K+dOjrUo/GTskV/kLteG129OHn4eJU4TyGE7aLsmm9WhH0QvnU8PAoHLkFpw==
+rwrsvc@^1.3.39:
+  version "1.3.39"
+  resolved "https://registry.yarnpkg.com/rwrsvc/-/rwrsvc-1.3.39.tgz#2939521d7c4b1f9453ed236765ad713935ddd271"
+  integrity sha512-yf0nkjTg0ZC2qVckd/HkzH/awu7Pv6s00E3i8i7Abs4x+++AT3LbSg2WWwX0p5895r/tr5bPZqyIQriQlzBuhA==
   dependencies:
-    deepler "^1.2.13"
+    deepler "^1.2.19"
     diff-match-patch "^1.0.5"
     dofiltra_api "^1.1.40"
     dotenv "^10.0.0"
-    dprx-types "^1.1.16"
+    dprx-types "^1.1.19"
     franc "^6.0.0"
     lodash "^4.17.21"
     split-helper "^1.0.10"
     time-helpers "^1.0.0"
-    wtn-svc "^1.1.38"
+    wtn-svc "^1.2.4"
 
 safe-eval@^0.4.1:
   version "0.4.1"
@@ -2028,9 +2028,9 @@ url-parse-lax@^3.0.0:
     prepend-http "^2.0.0"
 
 user-agents@^1.0.779:
-  version "1.0.889"
-  resolved "https://registry.yarnpkg.com/user-agents/-/user-agents-1.0.889.tgz#1c9f539c09fdfdac0b3e90db87e16a4f8ab5aa64"
-  integrity sha512-NHXOW1Mr5YgWunmLjKCrwR1CBLrGqB+6yz8w9wJponpYX/Q8qM0ZSa7dH1IuAYLe4FvB2vripnhyr8Oh8GB+og==
+  version "1.0.890"
+  resolved "https://registry.yarnpkg.com/user-agents/-/user-agents-1.0.890.tgz#25232ebc4a7069b4694d96c0104eb620f4927973"
+  integrity sha512-X1UOrqOqH1whoCVvRKm16OUhl/Gbbn6QWy9qCj27pDlMPpxzf3N2EwJ/kb6vw6C54Fo+rqULChsMr8DxEmR5ag==
   dependencies:
     dot-json "^1.2.2"
     lodash.clonedeep "^4.5.0"
@@ -2109,15 +2109,16 @@ ws@^8.2.3:
   resolved "https://registry.yarnpkg.com/ws/-/ws-8.4.0.tgz#f05e982a0a88c604080e8581576e2a063802bed6"
   integrity sha512-IHVsKe2pjajSUIl4KYMQOdlyliovpEPquKkqbwswulszzI7r0SfQrxnXdWAEqOlDCLrVSJzo+O1hAwdog2sKSQ==
 
-wtn-svc@^1.1.38:
-  version "1.1.38"
-  resolved "https://registry.yarnpkg.com/wtn-svc/-/wtn-svc-1.1.38.tgz#ad10aaa6044bbeffb80ee35e4cc3469ca2265a74"
-  integrity sha512-7OD9ghd/ziCZiRowM52TpIy7XPAYVuGNy1H456nSSta8hTydt9gPVL3g1zGkdo+vjOobTzcEQ51LvO5v76lTlg==
+wtn-svc@^1.2.4:
+  version "1.2.4"
+  resolved "https://registry.yarnpkg.com/wtn-svc/-/wtn-svc-1.2.4.tgz#f0ec9b968a38785bf57db66277c482b2551c9500"
+  integrity sha512-xGyLy2cN1dL4jmi0gER5Bt03RkDDyEOZM/eLdS2e7rern/R8v7cX8xCVBURFLF9Zkh3jCN4eStiFkJQM/uByXg==
   dependencies:
     browser-manager "^1.1.18"
     dotenv "^10.0.0"
-    dprx-types "^1.1.14"
+    dprx-types "^1.1.19"
     lodash "^4.17.21"
+    p-queue "^7.1.0"
     time-helpers "^1.0.0"
 
 xdg-basedir@^4.0.0:
