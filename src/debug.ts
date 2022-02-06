@@ -1,3 +1,5 @@
+/* tslint:disable:no-console */
+/* tslint:disable:no-debugger */
 /* tslint:disable:prefer-const */
 /* tslint:disable:no-empty */
 /* tslint:disable:no-shadowed-variable */
