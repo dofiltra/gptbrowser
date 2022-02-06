@@ -16,7 +16,6 @@ import { Readability } from '@mozilla/readability'
 import { Page, ElementHandle, BrowserManager } from 'browser-manager'
 import {
   TAcceptorInfo,
-  TCleanOpts,
   TCustoms,
   TDonor,
   TNreadOpts,
@@ -27,7 +26,7 @@ import {
 } from 'dprx-types'
 
 import { removeTags, replaceCustoms, replaceHtml } from './managers/cleaning'
-import { RewriteSvc, TInstanceOpts, TWtnSettings } from 'rwrsvc'
+import { AiSvc, TInstanceOpts, TRewriterSettings } from 'rwrsvc'
 import { reTryCatch } from 'esm-requirer'
 import { TemplateDarkBootstrap } from 'page-templator'
 import { extractSelectorValue } from './managers/extractors'
@@ -51,17 +50,21 @@ export type TContentSettings = {
 }
 
 export type TDependSettings = {
-  transSettings?: TInstanceOpts[]
-  wtnSettings?: TWtnSettings
+  transSettings: TInstanceOpts[]
+  wtnSettings: TRewriterSettings
 }
 
 export class GptBrowser extends BrowserManager {
-  private static wtnSettings?: TWtnSettings
-  private static transSettings?: TInstanceOpts[]
+  private static rwr?: AiSvc
 
   static async build<T>(browserOpts: TBrowserOpts, dependOpts?: TDependSettings): Promise<T | null> {
-    GptBrowser.wtnSettings = dependOpts?.wtnSettings
-    GptBrowser.transSettings = dependOpts?.transSettings
+    // GptBrowser.wtnSettings = dependOpts?.wtnSettings
+    // GptBrowser.transSettings = dependOpts?.transSettings
+
+    this.rwr = await AiSvc.build({
+      transSettings: dependOpts!.transSettings,
+      wtnSettings: dependOpts!.wtnSettings
+    })
 
     return super.build(browserOpts)
   }
@@ -142,7 +145,7 @@ export class GptBrowser extends BrowserManager {
     }
 
     const errors: any[] = []
-    const threadsCount = GptBrowser.wtnSettings?.browserOpts?.maxOpenedBrowsers || 1
+    const threadsCount = 10
 
     try {
       const { coefWtn = _.random(true), selectors = ['p'] } = rewriteOpts
@@ -173,14 +176,11 @@ export class GptBrowser extends BrowserManager {
     this.lockClose(6e5)
 
     try {
-      const rewritedResult = await new RewriteSvc({
-        transSettings: GptBrowser.transSettings,
-        wtnSettings: GptBrowser.wtnSettings
-      }).rewrite({
+      const rewritedResult = await GptBrowser.rwr?.rewrite({
         text,
         coefWtn
       })
-      return rewritedResult
+      return { ...rewritedResult }
     } catch (err: any) {
       this.lockClose()
       return { text: '', errors: { err } }

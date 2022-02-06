@@ -22,8 +22,7 @@ import {
 } from 'dprx-types'
 import _ from 'lodash'
 import { mimeTypes } from 'mime-helper'
-import { TInstanceOpts } from 'rwrsvc'
-import { TWtnSettings } from 'wtn-svc'
+import { TInstanceOpts, TRewriterSettings } from 'rwrsvc'
 import { GptBrowser, TBrowserOpts } from '..'
 
 export type TCleanSettings = {
@@ -33,7 +32,7 @@ export type TCleanSettings = {
   domainData: TDomainData
   acceptor: TAcceptorInfo
   browserOpts: TBrowserOpts
-  wtnSettings?: TWtnSettings
+  wtnSettings?: TRewriterSettings
   transSettings?: TInstanceOpts[]
   isFlasher?: boolean
   noBrowser?: boolean
@@ -139,8 +138,8 @@ export class CleaningSvc {
     wtnSettings
   }: TCleanSettings) {
     const browser = await GptBrowser.build<GptBrowser>(browserOpts, {
-      transSettings,
-      wtnSettings
+      transSettings: transSettings!,
+      wtnSettings: wtnSettings!
     })
     try {
       const { removers, replacers, customs } = domainData
