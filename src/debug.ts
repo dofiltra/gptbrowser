@@ -1,3 +1,12 @@
+/* tslint:disable:prefer-const */
+/* tslint:disable:no-empty */
+/* tslint:disable:no-shadowed-variable */
+/* tslint:disable:only-arrow-functions */
+/* tslint:disable:forin */
+/* tslint:disable:no-unused-expression */
+/* tslint:disable:prefer-for-of */
+/* tslint:disable:comment-format */
+/* tslint:disable:no-unused-expression */
 // // import { extractPageDate } from '.'
 // import fetch from 'node-fetch'
 
