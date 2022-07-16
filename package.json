@@ -43,7 +43,7 @@
   ],
   "dependencies": {
     "@mozilla/readability": "^0.4.2",
-    "browser-manager": "^1.1.25",
+    "browser-manager": "^1.1.26",
     "cheer-manager": "^1.0.1",
     "cheerio": "^1.0.0-rc.12",
     "dotenv": "^16.0.1",
