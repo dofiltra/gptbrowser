@@ -43,11 +43,11 @@
   ],
   "dependencies": {
     "@mozilla/readability": "^0.4.2",
-    "browser-manager": "^1.1.23",
+    "browser-manager": "^1.1.24",
     "cheer-manager": "^1.0.1",
     "cheerio": "^1.0.0-rc.12",
     "dotenv": "^16.0.1",
-    "dprx-types": "^1.1.120",
+    "dprx-types": "^1.1.123",
     "esm-requirer": "^1.0.3",
     "jsdom": "^20.0.0",
     "lodash": "^4.17.21",

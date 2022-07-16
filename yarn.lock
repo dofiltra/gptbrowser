@@ -252,10 +252,10 @@ brace-expansion@^2.0.1:
   dependencies:
     balanced-match "^1.0.0"
 
-browser-manager@^1.1.21, browser-manager@^1.1.23:
-  version "1.1.23"
-  resolved "https://registry.yarnpkg.com/browser-manager/-/browser-manager-1.1.23.tgz#90cd7600fcfaff91fabbc6e2048b5dd6d1e34fd0"
-  integrity sha512-t/0Jka9bCU1+gNdD+fR7HmEm7vjzNFmw7YbheN7GHLFUHODaLKdojrcsUIDJ7LkIe27NNbNEIX9KQHh2iNG/OQ==
+browser-manager@^1.1.21, browser-manager@^1.1.24:
+  version "1.1.24"
+  resolved "https://registry.yarnpkg.com/browser-manager/-/browser-manager-1.1.24.tgz#567b49d6261cf9789186e40040bb24dfec37ebd5"
+  integrity sha512-uD3C19/Ig6of92u0IQtKwEG/UsQLF57MJ02oXk6v4clJIRxScL+CX+LC8iXwlVQpUpOSpWuUFqm9Xraqwy+Trw==
   dependencies:
     is-running-process "^1.0.0"
     lodash "^4.17.21"
@@ -703,10 +703,10 @@ dotenv@^16.0.1:
   resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-16.0.1.tgz#8f8f9d94876c35dac989876a5d3a82a267fdce1d"
   integrity sha512-1K6hR6wtk2FviQ4kEiSjFiH5rpzEVi8WW0x96aztHVMhEspNpc4DVOUTEHtEva5VThQ8IaBX1Pe4gSzpVVUsKQ==
 
-dprx-types@^1.1.120:
-  version "1.1.120"
-  resolved "https://registry.yarnpkg.com/dprx-types/-/dprx-types-1.1.120.tgz#8e8cbdfee85a03d9aa1d1473a1c98019abf6abdd"
-  integrity sha512-1iJZLPiintKWuAsQC2aQYJ6S8bSJ1uBWqv7I9AipyapQBISctNYgMl43u6D6MvzkxeWsA4g4YgOZo0NCScq1OA==
+dprx-types@^1.1.120, dprx-types@^1.1.123:
+  version "1.1.123"
+  resolved "https://registry.yarnpkg.com/dprx-types/-/dprx-types-1.1.123.tgz#590c78c9d010a3146c6ede9610833addeab75ffa"
+  integrity sha512-NXFOiMl7uti5UogLikRKG3qPrjMJRuJU9Wt4qOnFeXI81EFN0nmcZ0Fwtj6I1BMr4xc3W+qPB6ClcwJFCOkfRA==
 
 duplexer3@^0.1.4:
   version "0.1.5"
