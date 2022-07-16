@@ -252,10 +252,10 @@ brace-expansion@^2.0.1:
   dependencies:
     balanced-match "^1.0.0"
 
-browser-manager@^1.1.21, browser-manager@^1.1.24:
-  version "1.1.24"
-  resolved "https://registry.yarnpkg.com/browser-manager/-/browser-manager-1.1.24.tgz#567b49d6261cf9789186e40040bb24dfec37ebd5"
-  integrity sha512-uD3C19/Ig6of92u0IQtKwEG/UsQLF57MJ02oXk6v4clJIRxScL+CX+LC8iXwlVQpUpOSpWuUFqm9Xraqwy+Trw==
+browser-manager@^1.1.21, browser-manager@^1.1.25:
+  version "1.1.25"
+  resolved "https://registry.yarnpkg.com/browser-manager/-/browser-manager-1.1.25.tgz#e44d66d1cbad188cce05bec7832a8489d8621b09"
+  integrity sha512-bC+w7+ULTtpN2aK7DDqNJNRhmXc4kFAndzNzCHVTVKWfg8LEejyZItKqcno2n7e/EnlL2feneMRFMWXkfpZWJA==
   dependencies:
     is-running-process "^1.0.0"
     lodash "^4.17.21"
