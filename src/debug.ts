@@ -13,7 +13,7 @@
 // import fetch from 'node-fetch'
 
 import fs from 'fs'
-import { TransType } from 'rwrsvc'
+import { RewriterInstanceType, TransType } from 'rwrsvc'
 import { GptBrowser } from '.'
 ;(async () => {
   const browser = await GptBrowser.build<GptBrowser>(
@@ -34,7 +34,7 @@ import { GptBrowser } from '.'
           {
             maxInstance: 0,
             maxPerUse: 5,
-            type: 'WTN',
+            type: RewriterInstanceType.Wtn,
             headless: false
           }
         ]
